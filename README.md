@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# Mood, Food, and Chill
-=======
 # Mood, Food, and Chill
 
 ## Contributors
@@ -42,4 +39,3 @@ Give a mood, this app will return you a movie selection and a recommended food t
         * Movie API fetch -> filter movies by genre -> randomly select movie from filtered list
         * food API fetch -> filter food by mood_2 -> randomly select food from filtered list
 
->>>>>>> eddi
