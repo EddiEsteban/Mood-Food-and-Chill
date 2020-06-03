@@ -1,1 +1,1 @@
-# Mood-Food-and-Chill
+# Mood, Food, and Chill
