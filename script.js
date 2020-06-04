@@ -47,10 +47,8 @@ function returnGenre(mood) {
         case 'relaxed':
             return relaxedGenres[Math.floor(Math.random() * relaxedGenres.length)];
         case 'neutral':
-            tempGenreList = neutralGenres;
             return neutralGenres[Math.floor(Math.random() * neutralGenres.length)];
         case 'energetic':
-            tempGenreList = energeticGenres;
             return energeticGenres[Math.floor(Math.random() * energeticGenres.length)];
     }
 }
