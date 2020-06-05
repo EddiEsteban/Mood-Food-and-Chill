@@ -6,11 +6,7 @@ const genreNames = ['Action', 'Adventure', 'Animation', 'Comedy',
 
 
 
-const relaxedGenres = ['Documentary', 'Family', 'Romance']
-const relaxedExcludedGenres = ['Action',]
-const neutralGenres = ['Adventure', 'Comedy', 'Drama', 'History', 'Mystery']
-const energeticGenres = ['Action', 'Music', 'Thriller', 'War', 'Western']
-const otherGenres = ['Animation', 'Fantasy', 'TV Movie', 'Science Fiction']
+const energeticGenres = ['Action', 'Adventure', 'Crime', 'Drama', 'Horror', 'Mystery', 'Thriller', 'War', 'Western']
 
 const genreLookup = [{id: 28, name: "Action"},{id: 12,name: "Adventure"},{id: 16,name: "Animation"},{id: 35,name: "Comedy"},
     {id: 80,name: "Crime"},{id: 99,name: "Documentary"},{id: 18,name: "Drama"},{id: 10751,name: "Family"},
@@ -20,66 +16,88 @@ const genreLookup = [{id: 28, name: "Action"},{id: 12,name: "Adventure"},{id: 16
 
 
 let foodApi = 'https://food-by-mood.herokuapp.com/api/foods'
-let movieApi = 'https://api.themoviedb.org/3/genre/movie/list?api_key=dbd68826ec7649f3671ac738ca17fe12&language=en-US' //check documentation
-let moods = [
-    "relaxed",
-    "neutral",
-    "energetic"
-]
 
+function returnEnergeticGenres(delimiter='|') { // "|" for OR, "," for AND
+    let tempGenreIdList = [];
+    for (let i = 0; i < genreLookup.length; i++) {
+        if (energeticGenres.includes(genreLookup[i].name)) {
+            tempGenreIdList += delimiter+genreLookup[i].id;
+        } 
+    }
+    return tempGenreIdList.substring(1,tempGenreIdList.length);  // remove 1st delimiter
+}
 
 
 // GIVEN a user-inputted mood
     // fetch an array of movies filtered by genres that match the mood
     // fetch an array of foods filtered by genres that match the mood
 
+const pageLength = 10
 const movieReturnCount = 5
 
 async function returnMovies (mood){
     // Doug's conversion from mood to IDs
 
-    let dummyEnergeticGenreIds = '28|16|27|53|37'
 
-    function moviesByGenreApi(genreIds, removedGenreIds) {
+    function moviesByGenreApi(genreIds, disclude=false, page=1) {
+        let mySwitch = disclude ? `&with_genres=${genreIds}` : `&without_genres=${genreIds}`
         return `https://api.themoviedb.org/3/discover/movie`
             + `?api_key=dbd68826ec7649f3671ac738ca17fe12&language=en-US`
             + `&sort_by=popularity.desc`
             + `&include_adult=false`
             + `&include_video=true`
-            + `&page=1`
-            + `&with_genres=${genreIds}`
-            + `&without_genres=${removedGenreIds}` // "|" for OR, "," for AND
+            + `&page=${page}`
+            + mySwitch 
     }
-    let api
+
+    async function fetchMovies(api) {
+        return await fetch(api)
+            .then(response => response.ok ? response.json() : Promise.reject('first then failed'))
+            .then(function(movies){
+                storageMovies = JSON.parse(localStorage.movies)
+                storageMovies.push(movies)
+                localStorage.movies = JSON.stringify(storageMovies) 
+            }).catch(error => console.warn(error))
+    }
+
+    localStorage.movies = '[]'
     switch(mood){
         case 'relaxed': 
-            api = moviesByGenreApi('', dummyEnergeticGenreIds)
+            for (i = 1; i <= pageLength; i ++){
+                await fetchMovies(moviesByGenreApi(returnEnergeticGenres(), disclude = false, page=i))
+            }
             break
         case 'neutral':
-            api = moviesByGenreApi('', '')
+            for (i = 1; i <= pageLength; i ++){
+                await fetchMovies(moviesByGenreApi('', disclude = false, page=i))
+            }
             break
         case 'energetic':
-            api = moviesByGenreApi(dummyEnergeticGenreIds, '')
-            break
+            for (i = 1; i <= pageLength; i ++){
+                await fetchMovies(moviesByGenreApi(returnEnergeticGenres(), disclude = true, page=i))
+            }
     }
-    return await fetch(api)
-    .then(response => response.ok ? response.json() : Promise.reject('first then failed'))
-        .then(function(movies){
-            localStorage.movies = JSON.stringify(movies) 
-        }).catch(error => console.warn(error))
- 
+    
+
 }
 
 async function returnMoviesAndFood(mood){
     event.preventDefault()
     await returnMovies(mood)
-    console.log(JSON.parse(localStorage.movies))
-    let movies = JSON.parse(localStorage.movies).results
+    let moviePages = JSON.parse(localStorage.movies)
+    console.log(moviePages)
     document.querySelector('#outputDiv').innerHTML = ''
-    for (let i = 0; i < movies.length ; i ++){
-        console.log(movies[i].original_title)
-        document.querySelector('#outputDiv').innerHTML += `<div>${movies[i].original_title}</div>`
+    for (let i = 0; i < moviePages.length ; i ++){
+        let movies = moviePages[i].results
+        console.log(movies)
+        console.log(movies.length)
+        for (let j = 0; j < movies.length; j ++){
+            console.log(j)
+            console.log(movies[j].original_title)
+            document.querySelector('#outputDiv').innerHTML += `<div>${movies[j].original_title}</div>`
+        }
     }
+
 }
 
 // async function returnFoods (mood){
