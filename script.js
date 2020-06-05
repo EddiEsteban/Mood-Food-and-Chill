@@ -37,67 +37,60 @@ const movieReturnCount = 5
 
 async function returnMovies (mood){
     // Doug's conversion from mood to IDs
+
+    let dummyEnergeticGenreIds = '28|16|27|53|37'
+
     function moviesByGenreApi(genreIds, removedGenreIds) {
-        return `https://api.themoviedb.org/3/discover/movie
-            ?api_key=dbd68826ec7649f3671ac738ca17fe12&language=en-US
-            &sort_by=popularity.desc
-            &include_adult=false
-            &include_video=true
-            &page=1
-            &with_genres=${genreIds},
-            without_genres=$${removedGenreIds}`
+        return `https://api.themoviedb.org/3/discover/movie`
+            + `?api_key=dbd68826ec7649f3671ac738ca17fe12&language=en-US`
+            + `&sort_by=popularity.desc`
+            + `&include_adult=false`
+            + `&include_video=true`
+            + `&page=1`
+            + `&with_genres=${genreIds}`
+            + `&without_genres=${removedGenreIds}` // "|" for OR, "," for AND
     }
     let api
     switch(mood){
         case 'relaxed': 
-            api = moviesByGenreApi(relaxedGenreIds, relaxedRemovedGenreIds)
+            api = moviesByGenreApi('', dummyEnergeticGenreIds)
             break
         case 'neutral':
-            api = moviesByGenreApi(neutralGenreIds, neutralRemovedGenreIds)
+            api = moviesByGenreApi('', '')
             break
         case 'energetic':
-            api = moviesByGenreApi(energeticGenreIds, energeticRemovedGenreIds)
+            api = moviesByGenreApi(dummyEnergeticGenreIds, '')
             break
     }
-    await fetch(api)
-                .then(function(response){
-                    if (response.ok){
-                        localStorage.movies = JSON.stringify(response.json().results.slice(0, 10))
-                    } else {Promise.reject('execute this in console when promise is rejected')}
-                }.catch(error => console.warn(error)))
+    return await fetch(api)
+    .then(response => response.ok ? response.json() : Promise.reject('first then failed'))
+        .then(function(movies){
+            localStorage.movies = JSON.stringify(movies) 
+        }).catch(error => console.warn(error))
  
 }
 
-async function returnFoods (mood){
-    function foodsByMood2sApi(mood2){}
-    return
+async function returnMoviesAndFood(mood){
+    event.preventDefault()
+    await returnMovies(mood)
+    console.log(JSON.parse(localStorage.movies))
+    let movies = JSON.parse(localStorage.movies).results
+    document.querySelector('#outputDiv').innerHTML = ''
+    for (let i = 0; i < movies.length ; i ++){
+        console.log(movies[i].original_title)
+        document.querySelector('#outputDiv').innerHTML += `<div>${movies[i].original_title}</div>`
+    }
 }
 
-async function fetchData(api){
+// async function returnFoods (mood){
+//     function foodsByMood2sApi(mood2){}
+//     return
+// }
 
-    result = await fetch(api).then(result => result.json())
-    return result
-}
 
-async function FoodData(){
-    foodObj = await fetchData(foodApi)
-    // movieObj = fetchData(movieApi)
-    console.log(foodObj)
-    contentEl = document.querySelector('#content')
-    contentEl.innerHTML = foodObj[0].title
-}
-
-async function MovieData(){
-    movieObj = await fetchData(movieApi)
-    console.log(movieObj)
-    contentEl = document.querySelector('#content')
-    let genreNames = movieObj.name;
-    console.log(`genreNames: ${genreNames}`);
-    contentEl.innerHTML = JSON.stringify(movieObj);
-}
 
 // FoodData();
-MovieData();
+
 
 
 /*

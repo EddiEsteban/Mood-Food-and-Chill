@@ -9,10 +9,23 @@
 <body>
     <div class='container'>
         <h1>
-            hi
+            Mood, Food, and Chil
         </h1>
         <div id='content'>
+            <form>
+                <button id='relaxedBtn' type="button" onClick='returnMoviesAndFood("relaxed")' class='btn btn-primary'>
+                    Neutral
+                </button>
+                <button id='neutralBtn' type="button" onClick='returnMoviesAndFood("neutral")' class='btn btn-warning'>
+                    Neutral
+                </button>
+                <button id='energeticBtn' type="button" onClick='returnMoviesAndFood("energetic")' class='btn btn-danger'>
+                    Energetic
+                </button>
+            </form>
+            <div id='outputDiv'>
 
+            </div>
         </div>
     </div>
     <script src='script.js'></script>
