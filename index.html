@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Mood Food and Chill</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet"/>
@@ -186,3 +187,182 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   </body>
 </html>
+</div>
+</nav>
+</div>
+
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Yes, Your Mood Matter!</h1>
+    <p class="description">You don't make a movie, the movie makes you. - Jean-Luc Godard</p>
+  </div>
+</section>
+
+<div class="container-fluid">
+  <div class="container"> 
+
+
+    <div class="row" id="Mood">
+        <h3 class="boxTitle">Mood</h3> 
+        <p>Choose a mood that you are in , and we will give you list of movie suggestion along with snack that you can enjoy!.</p>   
+         
+
+        
+      <div class="col-md-3"> 
+          <!-- erase card class due to grid problem --> 
+        <h5 class="card-title"> Neutral</h5>
+        <p class="card-text">  Feeling a bit bored, or want to learn something new?   </p>
+        <button onclick="myFunction()">Show Movies </button>
+
+        <p id="Movie "></p>
+
+      </div>
+      <div class="col-md-3">
+        <h5 class="card-title"> Relaxed </h5>
+        <p class="card-text">  Had a rough day? Need to take your mind of thing? We got some great movies for that </p> 
+        <button onclick="myFunction()">Show Movies </button>
+
+      <div class="col-md-3">
+        <h5 class="card-title"> Energetic </h5>
+        <p class="card-text"> Need a movie filled with action packed plot?  We got just the right movies for you that will keep you on the edge of your seat! </p> 
+        <button onclick="myFunction()">Show Movies </button>
+
+      </div>
+    </div> 
+
+   
+
+
+    <div class="row" id="Movie">
+        <h3 class="boxTitle">Movie</h3><br/><br/>
+        <span>Here is our suggestion under your mood <!--we can link our mood --> we can write down someting interesting or default recommendation. </span>  
+      <div class="resultBox col-md-6">
+          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+              <div class="col-auto d-none d-lg-block">
+                <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                  <title>Placeholder</title>
+                  <rect width="100%" height="100%" fill="#55595c"></rect>
+                  <text x="50%" y="50%" fill="#eceeef" dy=".3em">movie Photo</text>
+                </svg>
+              </div>
+              <div class="col p-4 d-flex flex-column position-static">
+                <h3 class="mb-0">Movie title</h3
+                <strong class="d-inline-block mb-2 text-success">Genre</strong>
+                <div class="mb-1 text-muted">Release year</div>
+                <p class="mb-auto">This is a space for information of moive or short summery about moive or something useful info from api.</p>
+                <a href="#" class="stretched-link">Search Google or imdb</a>
+              </div>
+          </div>
+      </div>
+     <div class="resultBox col-md-6">
+        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col-auto d-none d-lg-block">
+              <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#55595c"></rect>
+                <text x="50%" y="50%" fill="#eceeef" dy=".3em">movie Photo</text>
+              </svg>
+            </div>
+            <div class="col p-4 d-flex flex-column position-static">
+              <h3 class="mb-0">Movie title</h3>
+              <strong class="d-inline-block mb-2 text-success">Genre</strong>
+              <div class="mb-1 text-muted">Release year</div>
+              <p class="mb-auto">This is a space for information of moive or short summery about moive or something useful info from api.</p>
+              <a href="#" class="stretched-link">Search Google or imdb</a>
+            </div>
+        </div>
+     </div>
+    </div>  
+
+
+    <div class="row" id="Food">
+        <h3 class="boxTitle">Food</h3>
+        <span>Here is our suggestion under your mood <!--we can link our mood --> we can write down someting interesting or default recommendation. </span>  
+     <div class="resultBox col-md-6">
+        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+              <h3 class="mb-0">Food Name</h3>
+              <strong class="d-inline-block mb-2 text-success">Cuisines</strong>
+              <div class="mb-1 text-muted">Cooking time or Prep time</div>
+              <p class="mb-auto">This is a space for food infomation may be ingredients something........................</p>
+              <a href="#" class="stretched-link">Search Google</a>
+            </div>
+            <div class="col-auto d-none d-lg-block"><!-- photo URL -->
+              <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#55595c"></rect>
+                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+              </svg> 
+            </div>
+          </div>
+     </div>
+     <div class="resultBox col-md-6">
+        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+              <h3 class="mb-0">Food Name</h3>
+              <strong class="d-inline-block mb-2 text-success">Cuisines</strong>
+              <div class="mb-1 text-muted">Cooking time?</div>
+              <p class="mb-auto">This is a space for food infomation may be ingredients something........................</p>
+              <a href="https://yandex.com/images/search?from=tabbar&text= + Result" class="stretched-link">Search Google</a>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+              <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#55595c"></rect>
+                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+              </svg>
+            </div>
+          </div>
+     </div>
+    </div>  
+    
+   <div class="row" id="AboutUs">
+     <h3 class="boxTitle"></h3>
+     
+   </div>
+
+
+
+  </div>  
+</div>
+<div class='container'>
+  <div>  
+      <h1>
+      Mood, Food, and Chill
+      </h1>
+  </div>
+<div id='content'>
+    <div>
+          <form>
+              <button id='relaxedBtn' type="button" onClick='returnMoviesAndFood("relaxed")' class='btn btn-primary'>
+                  Relaxed
+              </button>
+              <button id='neutralBtn' type="button" onClick='returnMoviesAndFood("neutral")' class='btn btn-warning'>
+                  Neutral
+              </button>
+              <button id='energeticBtn' type="button" onClick='returnMoviesAndFood("energetic")' class='btn btn-danger'>
+                  Energetic
+              </button>
+          </form>
+      </div>
+      <hr/>
+      <div id='outputDiv'>
+
+      </div>
+    </div>
+</div>
+<footer>
+  <div class="container">
+    <p>This web application is &copy; team-coding</p>
+  </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src='script.js'></script>
+</body>
+</html>
+
+    
+
