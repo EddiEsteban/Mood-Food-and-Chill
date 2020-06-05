@@ -4,7 +4,10 @@ const genreNames = ['Action', 'Adventure', 'Animation', 'Comedy',
     'Romance', 'Science Fiction', 'TV Movie', 'Thriller',
     'War', 'Western']
 
+
+
 const relaxedGenres = ['Documentary', 'Family', 'Romance']
+const relaxedExcludedGenres = ['Action',]
 const neutralGenres = ['Adventure', 'Comedy', 'Drama', 'History', 'Mystery']
 const energeticGenres = ['Action', 'Music', 'Thriller', 'War', 'Western']
 const otherGenres = ['Animation', 'Fantasy', 'TV Movie', 'Science Fiction']
@@ -30,34 +33,45 @@ let moods = [
     // fetch an array of movies filtered by genres that match the mood
     // fetch an array of foods filtered by genres that match the mood
 
-
+const movieReturnCount = 5
 
 async function returnMovies (mood){
-    function movieByGenreApi(genreId) {
+    // Doug's conversion from mood to IDs
+    function moviesByGenreApi(genreIds, removedGenreIds) {
         return `https://api.themoviedb.org/3/discover/movie
             ?api_key=dbd68826ec7649f3671ac738ca17fe12&language=en-US
             &sort_by=popularity.desc
             &include_adult=false
             &include_video=true
             &page=1
-            &with_genres=${genreId}`}
+            &with_genres=${genreIds},
+            without_genres=$${removedGenreIds}`
+    }
+    let api
     switch(mood){
         case 'relaxed': 
-            for (i in relaxedGenres){
-                
-                
-            }
+            api = moviesByGenreApi(relaxedGenreIds, relaxedRemovedGenreIds)
             break
-        case neutral:
-            
+        case 'neutral':
+            api = moviesByGenreApi(neutralGenreIds, neutralRemovedGenreIds)
             break
-        case relaxed:
-
+        case 'energetic':
+            api = moviesByGenreApi(energeticGenreIds, energeticRemovedGenreIds)
             break
     }
-    // return myArray[Math.floor(Math.random()*myArray.length)];
+    await fetch(api)
+                .then(function(response){
+                    if (response.ok){
+                        localStorage.movies = JSON.stringify(response.json().results.slice(0, 10))
+                    } else {Promise.reject('execute this in console when promise is rejected')}
+                }.catch(error => console.warn(error)))
+ 
 }
 
+async function returnFoods (mood){
+    function foodsByMood2sApi(mood2){}
+    return
+}
 
 async function fetchData(api){
 
