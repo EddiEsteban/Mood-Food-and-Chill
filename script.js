@@ -92,9 +92,10 @@ async function returnMoviesAndFood(mood){
         console.log(movies)
         console.log(movies.length)
         for (let j = 0; j < movies.length; j ++){
-            console.log(j)
-            console.log(movies[j].original_title)
-            document.querySelector('#outputDiv').innerHTML += `<div>${movies[j].original_title}</div>`
+            let movie = movies[j]
+            document.querySelector('#outputDiv').innerHTML += `<div><h4>${movie.original_title}</h4>`
+                +`<h5>Genres: ${movie.genre_ids}</h5>`
+                +`<p>${movie.overview}</p></div>`
         }
     }
 
