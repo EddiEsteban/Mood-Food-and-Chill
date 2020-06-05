@@ -9,84 +9,13 @@ const neutralGenres = ['Adventure', 'Comedy', 'Drama', 'History', 'Mystery']
 const energeticGenres = ['Action', 'Music', 'Thriller', 'War', 'Western']
 const otherGenres = ['Animation', 'Fantasy', 'TV Movie', 'Science Fiction']
 
-const genreLookup = [{
-    id: 28,
-    name: "Action"
-    },
-    {
-    id: 12,
-    name: "Adventure"
-    },
-    {
-    id: 16,
-    name: "Animation"
-    },
-    {
-    id: 35,
-    name: "Comedy"
-    },
-    {
-    id: 80,
-    name: "Crime"
-    },
-    {
-    id: 99,
-    name: "Documentary"
-    },
-    {
-    id: 18,
-    name: "Drama"
-    },
-    {
-    id: 10751,
-    name: "Family"
-    },
-    {
-    id: 14,
-    name: "Fantasy"
-    },
-    {
-    id: 36,
-    name: "History"
-    },
-    {
-    id: 27,
-    name: "Horror"
-    },
-    {
-    id: 10402,
-    name: "Music"
-    },
-    {
-    id: 9648,
-    name: "Mystery"
-    },
-    {
-    id: 10749,
-    name: "Romance"
-    },
-    {
-    id: 878,
-    name: "Science Fiction"
-    },
-    {
-    id: 10770,
-    name: "TV Movie"
-    },
-    {
-    id: 53,
-    name: "Thriller"
-    },
-    {
-    id: 10752,
-    name: "War"
-    },
-    {
-    id: 37,
-    name: "Western"
-    }]
+const genreLookup = [{id: 28, name: "Action"},{id: 12,name: "Adventure"},{id: 16,name: "Animation"},{id: 35,name: "Comedy"},
+    {id: 80,name: "Crime"},{id: 99,name: "Documentary"},{id: 18,name: "Drama"},{id: 10751,name: "Family"},
+    {id: 14,name: "Fantasy"},{id: 36,name: "History"},{id: 27,name: "Horror"},{id: 10402,name: "Music"},
+    {id: 9648,name: "Mystery"},{id: 10749,name: "Romance"},{id: 878,name: "Science Fiction"},{id: 10770,name: "TV Movie"},
+    {id: 53,name: "Thriller"},{id: 10752,name: "War"},{id: 37,name: "Western"}]
 
-console.log('hi')
+
 let foodApi = 'https://food-by-mood.herokuapp.com/api/foods'
 let movieApi = 'https://api.themoviedb.org/3/genre/movie/list?api_key=dbd68826ec7649f3671ac738ca17fe12&language=en-US' //check documentation
 let moods = [
@@ -95,13 +24,36 @@ let moods = [
     "energetic"
 ]
 
-let movieByGenreApi = 'https://api.themoviedb.org/3/discover/movie?api_key=dbd68826ec7649f3671ac738ca17fe12&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=true&page=1&with_genres=28'
 
-function returnGenre (mood){
-    
+
+// GIVEN a user-inputted mood
+    // fetch an array of movies filtered by genres that match the mood
+    // fetch an array of foods filtered by genres that match the mood
+
+
+
+async function returnMovies (mood){
+    function movieByGenreApi(genreId) {
+        return `https://api.themoviedb.org/3/discover/movie
+            ?api_key=dbd68826ec7649f3671ac738ca17fe12&language=en-US
+            &sort_by=popularity.desc
+            &include_adult=false
+            &include_video=true
+            &page=1
+            &with_genres=${genreId}`}
     switch(mood){
         case 'relaxed': 
+            for (i in relaxedGenres){
+                
+                
+            }
+            break
+        case neutral:
+            
+            break
+        case relaxed:
 
+            break
     }
     // return myArray[Math.floor(Math.random()*myArray.length)];
 }
@@ -139,5 +91,4 @@ Notes for us to do
 array of genreNames
 match up genrenames to the 3 moods
 use genreNames to get the ids and then fetch based on genre
-*
-
+*/
