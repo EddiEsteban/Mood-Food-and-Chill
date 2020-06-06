@@ -50,7 +50,7 @@
 
     <div class="container-fluid">
       <div class="container"> 
-
+        
 
         <div class="row" id="Mood">
             <h3 class="boxTitle">Mood</h3> 
@@ -184,7 +184,7 @@
   </div>
 <div id='content'>
     <div>
-          <form>
+          <form><!--IMPORTANT: Must attribute TMDb API: https://www.themoviedb.org/documentation/api/terms-of-use-->
               <button id='relaxedBtn' type="button" onClick='returnMoviesAndFood("relaxed")' class='btn btn-primary'>
                   Relaxed
               </button>
@@ -197,7 +197,9 @@
           </form>
       </div>
       <hr/>
-      <div id='outputDiv'>
+      <div id='outputDiv' class='row'>
+        <div id='movies' class='col-12 col-md-9'></div>
+        <div id='foods' class='col-12 col-md-3'></div>
 
       </div>
     </div>
