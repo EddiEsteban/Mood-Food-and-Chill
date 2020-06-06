@@ -1,0 +1,119 @@
+body {
+  background-color: #a8a8a8;
+}
+
+.row {
+  padding: 0.5rem;
+  background-color: #a8a8a8;
+  align-content: space-between;
+}
+
+.navbar {
+  margin-bottom: 0;
+  background-color: #a8a8a8;
+  color: #260703;
+}   
+
+.resultBox{
+  padding-top: 1.3rem;
+}
+
+
+* {box-sizing:border-box}
+
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-gap: 20px;
+}
+
+.card {
+  display: grid;
+  grid-template-rows: max-content 200px 1fr;
+}
+
+.card img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 18rem;
+  margin: auto;
+  text-align: center; 
+  font-family: 'Didact Gothic', sans-serif;
+
+}
+
+.boxTitle {
+  display: inline-block;
+  color: grey;
+  font-size: 18px;  
+  font-family: 'Didact Gothic', sans-serif;
+
+}
+.jumbotron {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  margin-bottom: 0;
+  background-color: #cc7266;
+  color: white;
+  border-radius: 0;
+  padding: 60px;
+  background-image: url("https://images.unsplash.com/photo-1527224538127-2104bb71c51b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80");
+  background-size: cover;
+}
+
+.jumbotron-heading {
+  font-weight: 300;
+}
+
+.jumbotron .container {
+  max-width: 300rem;
+}
+
+
+.mood {
+  margin: 10px 0;
+}
+
+.movieResultPhoto {
+  width: 100%;
+  height: 40%;
+}
+
+.card-text {
+  font-size: 85%;
+}
+
+footer {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+footer p {
+  margin-bottom: 0.25rem;
+} 
+
+<!--- fonts  
+
+.h1 {
+  font-size: 40px; 
+  font-family: 'Didact Gothic', sans-serif;
+
+}
+
+.p1{ 
+  font-size:20px; 
+  font-family: 'Didact Gothic', sans-serif; 
+  style="margin-left: 2.5em;padding: 0 7em 2em 0;border-width: 2px;
+
+} 
+
+.p {
+  font-size: 15px;  
+  font-family: 'Didact Gothic', sans-serif;
+
+}
