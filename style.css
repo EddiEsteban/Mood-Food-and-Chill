@@ -3,7 +3,7 @@ body {
 }
 
 .row {
-  padding: 0.5rem;
+  padding: 0rem;
   background-color: #a8a8a8;
   align-content: space-between;
 }
@@ -18,9 +18,16 @@ body {
   padding-top: 1.3rem;
 }
 
+.resultBoxContent{
+  padding: 0.5rem!important;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
 
 
 
+/* Sadian Can I erase this?
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
@@ -42,7 +49,7 @@ body {
   max-width: 18rem;
   margin: auto;
   text-align: center;
-}
+} */
 
 .boxTitle {
   display: inline-block;
@@ -52,17 +59,24 @@ body {
 .jumbotron {
   padding-top: 6rem;
   padding-bottom: 6rem;
-  margin-bottom: 0;
-  background-color: #cc7266;
+  margin-bottom: 1%;
+  background-color: darkslategray; /*backup*/
   color: white;
   border-radius: 0;
-  padding: 60px;
+  padding: 10%;
   background-image: url("https://images.unsplash.com/photo-1527224538127-2104bb71c51b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80");
   background-size: cover;
 }
 
 .jumbotron-heading {
-  font-weight: 300;
+  font-weight: 400;
+  font-size: 100%;
+  text-align: center;
+}
+.jumbotron-description{
+  font-weight: 100;
+  font-size: 8px;
+  text-align: right;
 }
 
 .jumbotron .container {
@@ -70,8 +84,14 @@ body {
 }
 
 
-.mood {
-  margin: 10px 0;
+#Mood {
+  margin: 2px -15px;
+}
+
+.col-md-3{
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+  padding-left: 0;
 }
 
 .movieResultPhoto {
@@ -79,7 +99,7 @@ body {
   height: 40%;
 }
 
-.card-text {
+.moodText {
   font-size: 85%;
 }
 

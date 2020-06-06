@@ -8,10 +8,6 @@
     <link href="style.css" rel="stylesheet"/>
     <link rel="icon" href="Assets/favicon.ico">  
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
-
 </head>  
 
 <body>
@@ -30,7 +26,7 @@
                 <a class="nav-link" href="#Movie"> Movies </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#Food"> Snacks </a>
+                <a class="nav-link" href="#Food"> Foods </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#AboutUs"> About Us</a>
@@ -41,10 +37,8 @@
     </div>
 
     <section class="jumbotron text-center">
-      <div class="container">
-        <h1 class="jumbotron-heading">Yes, Your Mood Matter!</h1>
-        <p class="description">You don't make a movie, the movie makes you. - Jean-Luc Godard</p>
-      </div>
+      <h2 class="jumbotron-heading">Yes, Your Mood Matter!</h2>
+      <p class="jumbotron-description">You don't make a movie, the movie makes you.</br> - Jean-Luc Godard</p>
     </section>
 
     <div class="container-fluid">
@@ -58,33 +52,32 @@
  
             
           <div class="col-md-3"> 
-              <!-- erase card class due to grid problem --> 
-            <h5 class="card-title"> Neutral</h5>
-            <p class="card-text">  Feeling a bit bored, or want to learn something new?   </p>
+            <h5 class="moodTitle"> Neutral</h5>
+            <p class="moodText">  Feeling a bit bored, or want to learn something new?   </p>
             <button onclick="myFunction()">Show Movies </button>
-
-            <p id="Movie "></p>
-
           </div>
-          <div class="col-md-3">
-            <h5 class="card-title"> Relaxed </h5>
-            <p class="card-text">  Had a rough day? Need to take your mind of thing? We got some great movies for that </p> 
-            <button onclick="myFunction()">Show Movies </button>
 
           <div class="col-md-3">
-            <h5 class="card-title"> Energetic </h5>
-            <p class="card-text"> Need a movie filled with action packed plot?  We got just the right movies for you that will keep you on the edge of your seat! </p> 
+            <h5 class="moodTitle"> Relaxed </h5>
+            <p class="moodText">  Had a rough day? Need to take your mind of thing? We got some great movies for that </p> 
             <button onclick="myFunction()">Show Movies </button>
-
           </div>
+
+          <div class="col-md-3">
+            <h5 class="moodTitle"> Energetic </h5>
+            <p class="moodText"> Need a movie filled with action packed plot?  We got just the right movies for you that will keep you on the edge of your seat! </p> 
+            <button onclick="myFunction()">Show Movies </button>
+          </div>
+
+
         </div> 
 
        
 
 
         <div class="row" id="Movie">
-            <h3 class="boxTitle">Movie</h3><br/><br/>
-            <span>Here is our suggestion under your mood <!--we can link our mood --> we can write down someting interesting or default recommendation. </span>  
+            <p class="boxTitle">Movie</p></br>
+            <p>Here is our suggestion under your mood <!--we can link our mood --> we can write down someting interesting or default recommendation. </p>  
           <div class="resultBox col-md-6">
               <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                   <div class="col-auto d-none d-lg-block">
@@ -94,8 +87,8 @@
                       <text x="50%" y="50%" fill="#eceeef" dy=".3em">movie Photo</text>
                     </svg>
                   </div>
-                  <div class="col p-4 d-flex flex-column position-static">
-                    <h3 class="mb-0">Movie title</h3
+                  <div class="resultBoxContent col">
+                    <h3 class="mb-0">Movie title</h3>
                     <strong class="d-inline-block mb-2 text-success">Genre</strong>
                     <div class="mb-1 text-muted">Release year</div>
                     <p class="mb-auto">This is a space for information of moive or short summery about moive or something useful info from api.</p>
@@ -112,7 +105,7 @@
                     <text x="50%" y="50%" fill="#eceeef" dy=".3em">movie Photo</text>
                   </svg>
                 </div>
-                <div class="col p-4 d-flex flex-column position-static">
+                <div class="resultBoxContent col">
                   <h3 class="mb-0">Movie title</h3>
                   <strong class="d-inline-block mb-2 text-success">Genre</strong>
                   <div class="mb-1 text-muted">Release year</div>
@@ -129,7 +122,7 @@
             <span>Here is our suggestion under your mood <!--we can link our mood --> we can write down someting interesting or default recommendation. </span>  
          <div class="resultBox col-md-6">
             <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                <div class="col p-4 d-flex flex-column position-static">
+                <div class="resultBoxContent col">
                   <h3 class="mb-0">Food Name</h3>
                   <strong class="d-inline-block mb-2 text-success">Cuisines</strong>
                   <div class="mb-1 text-muted">Cooking time or Prep time</div>
@@ -147,7 +140,7 @@
          </div>
          <div class="resultBox col-md-6">
             <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                <div class="col p-4 d-flex flex-column position-static">
+                <div class="resultBoxContent col">
                   <h3 class="mb-0">Food Name</h3>
                   <strong class="d-inline-block mb-2 text-success">Cuisines</strong>
                   <div class="mb-1 text-muted">Cooking time?</div>
