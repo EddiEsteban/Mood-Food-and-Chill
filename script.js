@@ -14,6 +14,10 @@ const genreLookup = [{id: 28, name: "Action"},{id: 12,name: "Adventure"},{id: 16
     {id: 9648,name: "Mystery"},{id: 10749,name: "Romance"},{id: 878,name: "Science Fiction"},{id: 10770,name: "TV Movie"},
     {id: 53,name: "Thriller"},{id: 10752,name: "War"},{id: 37,name: "Western"}]
 
+const neutralMoods = ["Healthy","Sad","Happy"];
+const relaxedMoods = ["Comfortable","Drunk","Stoned"];
+const energeticMoods = ["Exciting","Scary"];
+
 
 let foodApi = 'https://food-by-mood.herokuapp.com/api/foods'
 
@@ -27,6 +31,15 @@ function returnEnergeticGenres(delimiter='|') { // "|" for OR, "," for AND
     return tempGenreIdList.substring(1,tempGenreIdList.length);  // remove 1st delimiter
 }
 
+function returnGenresById(genres,delimiter='|') { // "|" for OR, "," for AND
+    let tempGenreList = [];
+    for (let i = 0; i < genreLookup.length; i++) {
+        if (genres.includes(genreLookup[i].id)) {
+            tempGenreList += delimiter+genreLookup[i].name;    
+        }
+    }
+    return (tempGenreList=="") ? "N/A" : tempGenreList.substring(1, tempGenreList.length); 
+}
 
 // GIVEN a user-inputted mood
     // fetch an array of movies filtered by genres that match the mood
@@ -34,10 +47,27 @@ function returnEnergeticGenres(delimiter='|') { // "|" for OR, "," for AND
 
 const pageLength = 10
 const movieReturnCount = 5
+const foodReturnCount = 1
+
+// Randomly pick movieReturnCount # of movies from the list and return
+function pickMovies (movieObjects) {
+    var result = [];
+    for (var i = 0; i < movieReturnCount; i++) {
+        result.push(movieObjects[Math.floor(Math.random() * movieObjects.length)]);
+    }
+    return result;
+}
+
+// Randomly pick foodReturnCount # of foods from the list and return
+function pickFood (foodObjects) {
+    var result = [];
+    for (var i = 0; i < foodReturnCount; i++) {
+        result.push(foodObjects[Math.floor(Math.random() * foodObjects.length)]);
+    }
+    return result;
+}
 
 async function returnMovies (mood){
-    // Doug's conversion from mood to IDs
-
 
     function moviesByGenreApi(genreIds, disclude=false, page=1) {
         let mySwitch = disclude ? `&with_genres=${genreIds}` : `&without_genres=${genreIds}`
@@ -84,6 +114,7 @@ async function returnMoviesAndFood(mood){
     event.preventDefault()
     await returnMovies(mood)
     let moviePages = JSON.parse(localStorage.movies)
+<<<<<<< HEAD
 
     document.querySelector('#movies').innerHTML = ''
     for (let i = 0; i < moviePages.length ; i ++){
@@ -94,8 +125,43 @@ async function returnMoviesAndFood(mood){
                 +`<h5>Genres: ${movie.genre_ids}</h5>`
                 +`<p>${movie.overview}</p></div>`
         }
-    }
+=======
+    let movies = []
+    // console.log(moviePages)
 
+    document.querySelector('#movies').innerHTML = ''
+    for (let i = 0; i < moviePages.length ; i ++){
+        movies = moviePages[i].results
+    }
+    let moviepicks = pickMovies(movies);    // randomly pick movies from the list
+    for (let j = 0; j < moviepicks.length; j ++){
+        let movie = moviepicks[j]
+        document.querySelector('#movies').innerHTML += `<div><h4>${movie.original_title}</h4>`
+            +`<h5>Genres: ${returnGenresById(movie.genre_ids, ', ')}</h5>`
+            +`<p>${movie.overview}</p></div>`
+    }
+    document.querySelector('#foods').innerHTML = ''
+    await returnFoods(mood)
+    let foods = JSON.parse(localStorage.foods)
+    console.log(foods)
+    let randomFood = pickFood(foods)
+    for (let i = 0; i < randomFood.length; i++){
+        let food = randomFood[i]
+        console.log(food.photoUrl)
+        document.querySelector('#foods').innerHTML += `<div
+            class="card" style="width: 18rem;"><img 
+            src="${food.photoUrl}" class="card-img-top"/><div
+            class="card-body"><h5 
+            class="card-title">${food.title}</h5><p 
+            class="card-text"><strong>Ingredients:</strong> ${food.ingredients}</p><p 
+            class="card-text"><strong>Instructions:</strong> ${food.instructions}</p><p 
+            class="card-text"><strong>Prep Time:</strong> ${food.prepTime} min; <strong>Cook Time: </strong>${food.cookTime} min</p>
+            </div></div><hr/>`
+>>>>>>> doug
+    }
+}
+
+<<<<<<< HEAD
     document.querySelector('#foods').innerHTML = ''
     await returnFoods(mood)
     let foods = JSON.parse(localStorage.foods)
@@ -141,6 +207,42 @@ async function returnFoods (ourMood){
 
 }
 
+=======
+function getFoodApiMoods(mood){
+    let apimoods = []
+    switch(mood){
+        case 'relaxed': 
+            apimoods = relaxedMoods
+            break
+        case 'neutral':
+            apimoods = neutralMoods
+            break
+        case 'energetic':
+            apimoods = energeticMoods
+    }
+    return apimoods
+}
+
+async function returnFoods (ourMood){
+    foodApi = `https://food-by-mood.herokuapp.com/api/foods`
+    moodMap = getFoodApiMoods(ourMood)
+
+    function foodsByMood2Filter(food){
+        return moodMap.includes(food.mood)
+    }
+
+    async function fetchFoods(api){
+        return await fetch(api)
+            .then(response => response.ok ? response.json() : Promise.reject('first then failed'))
+            .then(function(foods){
+                console.log(foods)  
+                foodsByMood2Array = foods.filter(foodsByMood2Filter)
+                localStorage.foods = JSON.stringify(foodsByMood2Array) 
+            }).catch(error => console.warn(error))
+    }
+    await fetchFoods(foodApi)
+}
+>>>>>>> doug
 
 
 
