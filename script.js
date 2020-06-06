@@ -117,18 +117,41 @@ async function returnMoviesAndFood(mood){
     let movies = []
     // console.log(moviePages)
 
-    document.querySelector('#movies').innerHTML = ''
+    document.querySelector('#movieResultF').innerHTML = ''
     for (let i = 0; i < moviePages.length ; i ++){
         movies = moviePages[i].results
     }
     let moviepicks = pickMovies(movies);    // randomly pick movies from the list
     for (let j = 0; j < moviepicks.length; j ++){
         let movie = moviepicks[j]
-        document.querySelector('#movies').innerHTML += `<div><h4>${movie.original_title}</h4>`
-            +`<h5>Genres: ${returnGenresById(movie.genre_ids, ', ')}</h5>`
-            +`<p>${movie.overview}</p></div>`
+        document.querySelector('#movieResultF').innerHTML += 
+            `
+            <div class="resultBox col-md-6">
+            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col-auto d-none d-lg-block">
+                  <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#55595c"></rect>
+                    <text x="50%" y="50%" fill="#eceeef" dy=".3em">movie Photo</text>
+                  </svg>
+                </div>
+                <div class="resultBoxContent col">
+                  <h3 class="mb-0">${movie.original_title}</h3>
+                  <strong class="d-inline-block mb-2 text-success">Genres: ${returnGenresById(movie.genre_ids, ', ')}</strong>
+                  <div class="mb-1 text-muted">Release Year: ${movie.release_date.substr(0, 4)}</div>
+                  <p class="mb-auto">${movie.overview}</p>
+                  <a href="https://www.rottentomatoes.com/search?search= + ${movie.original_title}" class="stretched-link">Search at Rotten Tomatoes</a>
+                </div>
+            </div>
+            </div>
+            `
+            // previous lines
+            // `<h3 class="resultBoxContent col"><h4 class="mb-0">${movie.original_title}</h3>`
+            // +`<strong class="d-inline-block mb-2 text-success">Genres: ${returnGenresById(movie.genre_ids, ', ')}</strong>`
+            // +`<div class="mb-1 text-muted">Release Year: ${movie.release_date.substr(0, 4)}</div>`
+            // +`<p class="mb-auto">${movie.overview}</p></div>`
     }
-    document.querySelector('#foods').innerHTML = ''
+    document.querySelector('#foodResultF').innerHTML = ''
     await returnFoods(mood)
     let foods = JSON.parse(localStorage.foods)
     console.log(foods)
@@ -136,16 +159,38 @@ async function returnMoviesAndFood(mood){
     for (let i = 0; i < randomFood.length; i++){
         let food = randomFood[i]
         console.log(food.photoUrl)
-        document.querySelector('#foods').innerHTML += `<div
-            class="card" style="width: 18rem;"><img 
-            src="${food.photoUrl}" class="card-img-top"/><div
-            class="card-body"><h5 
-            class="card-title">${food.title}</h5><p 
-            class="card-text"><strong>Ingredients:</strong> ${food.ingredients}</p><p 
-            class="card-text"><strong>Instructions:</strong> ${food.instructions}</p><p 
-            class="card-text"><strong>Prep Time:</strong> ${food.prepTime} min; <strong>Cook Time: </strong>${food.cookTime} min</p>
-            </div></div><hr/>`
-    }
+        document.querySelector('#foodResultF').innerHTML += 
+        `
+        <div class="resultBox col-md-6">
+              <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                  <div class="resultBoxContent col">
+                    <h3 class="mb-0">${food.title}</h3>
+                    <p class="d-inline-block mb-2 text-success"><strong>Ingredients:</strong> ${food.ingredients}</p>
+                    <div class="mb-1 text-muted"><strong>Prep Time:</strong> ${food.prepTime} min, <strong>Cook Time: </strong>${food.cookTime} min<</div>
+                    <p class="mb-auto"><strong>Instructions:</strong> ${food.instructions}</p>
+                    <a href="https://yandex.com/images/search?from=tabbar&text= + ${food.title}" class="stretched-link">Search more Image</a>
+                  </div>
+                  <div class="col-auto d-none d-lg-block">
+                    <svg class="bd-placeholder-img" width="200" height="250" xmlns="${food.photoUrl}" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                      <title>Placeholder</title>
+                      <rect width="100%" height="100%" fill="#55595c"></rect>
+                      <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                    </svg>
+                  </div>
+                </div>
+          </div>
+        `
+            // previouse lines
+            // `<div class="card" style="width: 18rem;">
+            //     <img src="${food.photoUrl}" class="card-img-top"/>
+            //     <div class="card-body">
+            //         <h5 class="card-title">${food.title}</h5>
+            //         <p class="card-text"><strong>Ingredients:</strong> ${food.ingredients}</p>
+            //         <p class="card-text"><strong>Instructions:</strong> ${food.instructions}</p>
+            //         <p class="card-text"><strong>Prep Time:</strong> ${food.prepTime} min; <strong>Cook Time: </strong>${food.cookTime} min</p>
+            //     </div>
+            // </div><hr/>`
+        }
 }
 
 function getFoodApiMoods(mood){

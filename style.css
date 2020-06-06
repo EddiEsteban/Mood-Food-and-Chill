@@ -16,6 +16,8 @@ body {
 
 .resultBox{
   padding-top: 1.3rem;
+  padding-left: 0.1rem;
+  padding-right: 0.1rem;
 }
 
 .resultBoxContent{
@@ -42,7 +44,7 @@ body {
 .card img {
   object-fit: cover;
   /* width: 100%;
-  height: 100%; */
+  height: 100%; 
 }
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -63,7 +65,7 @@ body {
   background-color: darkslategray; /*backup*/
   color: white;
   border-radius: 0;
-  padding: 10%;
+  padding: 25%;
   background-image: url("https://images.unsplash.com/photo-1527224538127-2104bb71c51b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80");
   background-size: cover;
 }

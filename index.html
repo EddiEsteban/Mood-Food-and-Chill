@@ -55,21 +55,26 @@
           <div class="col-md-3"> 
             <h5 class="moodTitle"> Neutral</h5>
             <p class="moodText">  Feeling a bit bored, or want to learn something new?   </p>
-            <button onclick="myFunction()">Show Movies </button>
+            <button id='neutralBtn' type="button" onClick='returnMoviesAndFood("neutral")' class='btn btn-warning'>
+              Neutral
+            </button>
           </div>
 
           <div class="col-md-3">
             <h5 class="moodTitle"> Relaxed </h5>
             <p class="moodText">  Had a rough day? Need to take your mind of thing? We got some great movies for that </p> 
-            <button onclick="myFunction()">Show Movies </button>
+            <button id='relaxedBtn' type="button" onClick='returnMoviesAndFood("relaxed")' class='btn btn-primary'>
+              Relaxed
+            </button>
           </div>
 
           <div class="col-md-3">
             <h5 class="moodTitle"> Energetic </h5>
             <p class="moodText"> Need a movie filled with action packed plot?  We got just the right movies for you that will keep you on the edge of your seat! </p> 
-            <button onclick="myFunction()">Show Movies </button>
+            <button id='energeticBtn' type="button" onClick='returnMoviesAndFood("energetic")' class='btn btn-danger'>
+              Energetic
+            </button>
           </div>
-
 
         </div> 
 
@@ -79,6 +84,7 @@
         <div class="row" id="Movie">
             <p class="boxTitle">Movie</p></br>
             <p>Here is our suggestion under your mood <!--we can link our mood --> we can write down someting interesting or default recommendation. </p>  
+        <div  id="movieResultF">
           <div class="resultBox col-md-6">
               <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                   <div class="col-auto d-none d-lg-block">
@@ -97,7 +103,7 @@
                   </div>
               </div>
           </div>
-         <div class="resultBox col-md-6">
+          <div class="resultBox col-md-6">
             <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col-auto d-none d-lg-block">
                   <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
@@ -114,51 +120,54 @@
                   <a href="#" class="stretched-link">Search Google or imdb</a>
                 </div>
             </div>
-         </div>
+          </div>
+        </div>
         </div>  
 
 
         <div class="row" id="Food">
             <h3 class="boxTitle">Food</h3>
-            <span>Here is our suggestion under your mood <!--we can link our mood --> we can write down someting interesting or default recommendation. </span>  
-         <div class="resultBox col-md-6">
-            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                <div class="resultBoxContent col">
-                  <h3 class="mb-0">Food Name</h3>
-                  <strong class="d-inline-block mb-2 text-success">Cuisines</strong>
-                  <div class="mb-1 text-muted">Cooking time or Prep time</div>
-                  <p class="mb-auto">This is a space for food infomation may be ingredients something........................</p>
-                  <a href="#" class="stretched-link">Search Google</a>
+            <span>Here is our suggestion under your mood <!--we can link our mood --> we can write down someting interesting or default recommendation. </span>
+         <div id="foodResultF">   
+          <div class="resultBox col-md-6">
+              <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                  <div class="resultBoxContent col">
+                    <h3 class="mb-0">Food Name</h3>
+                    <strong class="d-inline-block mb-2 text-success">Cuisines</strong>
+                    <div class="mb-1 text-muted">Cooking time or Prep time</div>
+                    <p class="mb-auto">This is a space for food infomation may be ingredients something........................</p>
+                    <a href="#" class="stretched-link">Search Google</a>
+                  </div>
+                  <div class="col-auto d-none d-lg-block"><!-- photo URL -->
+                    <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                      <title>Placeholder</title>
+                      <rect width="100%" height="100%" fill="#55595c"></rect>
+                      <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                    </svg> 
+                  </div>
                 </div>
-                <div class="col-auto d-none d-lg-block"><!-- photo URL -->
-                  <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#55595c"></rect>
-                    <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                  </svg> 
+          </div>
+          <div class="resultBox col-md-6">
+              <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                  <div class="resultBoxContent col">
+                    <h3 class="mb-0">Food Name</h3>
+                    <strong class="d-inline-block mb-2 text-success">Cuisines</strong>
+                    <div class="mb-1 text-muted">Cooking time?</div>
+                    <p class="mb-auto">This is a space for food infomation may be ingredients something........................</p>
+                    <a href="https://yandex.com/images/search?from=tabbar&text= + Result" class="stretched-link">Search Google</a>
+                  </div>
+                  <div class="col-auto d-none d-lg-block">
+                    <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                      <title>Placeholder</title>
+                      <rect width="100%" height="100%" fill="#55595c"></rect>
+                      <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                    </svg>
+                  </div>
                 </div>
-              </div>
-         </div>
-         <div class="resultBox col-md-6">
-            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                <div class="resultBoxContent col">
-                  <h3 class="mb-0">Food Name</h3>
-                  <strong class="d-inline-block mb-2 text-success">Cuisines</strong>
-                  <div class="mb-1 text-muted">Cooking time?</div>
-                  <p class="mb-auto">This is a space for food infomation may be ingredients something........................</p>
-                  <a href="https://yandex.com/images/search?from=tabbar&text= + Result" class="stretched-link">Search Google</a>
-                </div>
-                <div class="col-auto d-none d-lg-block">
-                  <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#55595c"></rect>
-                    <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                  </svg>
-                </div>
-              </div>
-         </div>
-        </div>  
+          </div>
         </div>
+        </div>  
+      
        <div class="row" id="AboutUs">
          <h3 class="boxTitle"></h3>
          
@@ -169,33 +178,7 @@
       </div>  
     </div>
 
-<div class='container'>
-  <div>  
-      <h1>
-      Mood, Food, and Chill
-      </h1>
-  </div>
-<div id='content'>
-    <div>
-          <form><!--IMPORTANT: Must attribute TMDb API: https://www.themoviedb.org/documentation/api/terms-of-use-->
-              <button id='relaxedBtn' type="button" onClick='returnMoviesAndFood("relaxed")' class='btn btn-primary'>
-                  Relaxed
-              </button>
-              <button id='neutralBtn' type="button" onClick='returnMoviesAndFood("neutral")' class='btn btn-warning'>
-                  Neutral
-              </button>
-              <button id='energeticBtn' type="button" onClick='returnMoviesAndFood("energetic")' class='btn btn-danger'>
-                  Energetic
-              </button>
-          </form>
-      </div>
-      <hr/>
-      <div id='outputDiv' class='row'>
-        <div id='movies' class='col-12 col-md-9'></div>
-        <div id='foods' class='col-12 col-md-3'></div>
 
-      </div>
-    </div>
 </div>
 <footer>
   <div class="container">
