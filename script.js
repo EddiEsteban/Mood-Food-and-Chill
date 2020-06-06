@@ -114,18 +114,6 @@ async function returnMoviesAndFood(mood){
     event.preventDefault()
     await returnMovies(mood)
     let moviePages = JSON.parse(localStorage.movies)
-<<<<<<< HEAD
-
-    document.querySelector('#movies').innerHTML = ''
-    for (let i = 0; i < moviePages.length ; i ++){
-        let movies = moviePages[i].results
-        for (let j = 0; j < movies.length; j ++){
-            let movie = movies[j]
-            document.querySelector('#movies').innerHTML += `<div><h4>${movie.original_title}</h4>`
-                +`<h5>Genres: ${movie.genre_ids}</h5>`
-                +`<p>${movie.overview}</p></div>`
-        }
-=======
     let movies = []
     // console.log(moviePages)
 
@@ -157,57 +145,9 @@ async function returnMoviesAndFood(mood){
             class="card-text"><strong>Instructions:</strong> ${food.instructions}</p><p 
             class="card-text"><strong>Prep Time:</strong> ${food.prepTime} min; <strong>Cook Time: </strong>${food.cookTime} min</p>
             </div></div><hr/>`
->>>>>>> doug
     }
 }
 
-<<<<<<< HEAD
-    document.querySelector('#foods').innerHTML = ''
-    await returnFoods(mood)
-    let foods = JSON.parse(localStorage.foods)
-    console.log(foods)
-    for (let i = 0; i < foods.length; i++){
-        let food = foods[i]
-        console.log(food.photoUrl)
-        document.querySelector('#foods').innerHTML += `<div
-            class="card" style="width: 18rem;"><img 
-            src="${food.photoUrl}" class="card-img-top"/><div
-            class="card-body"><h5 
-            class="card-title">${food.title}</h5><p 
-            class="card-text"><strong>Ingredients:</strong> ${food.ingredients}</p><p 
-            class="card-text"><strong>Instructions:</strong> ${food.instructions}</p><p 
-            class="card-text"><strong>Prep Time:</strong> ${food.prepTime} min; <strong>Cook Time: </strong>${food.cookTime} min</p>
-            </div></div><hr/>`
-    }
-
-    
-
-}
-
-async function returnFoods (ourMood){
-    foodApi = `https://food-by-mood.herokuapp.com/api/foods`
-
-    moodMap = ['Comfortable', 'Scary'] //replace with moodMap dependent on ourMood (Doug's task)
-
-    function foodsByMood2Filter(food){
-        return moodMap.includes(food.mood)
-    }
-
-    async function fetchFoods(api){
-        return await fetch(api)
-            .then(response => response.ok ? response.json() : Promise.reject('first then failed'))
-            .then(function(foods){
-                console.log(foods)  
-                foodsByMood2Array = foods.filter(foodsByMood2Filter)
-                localStorage.foods = JSON.stringify(foodsByMood2Array) 
-            }).catch(error => console.warn(error))
-    }
-
-    await fetchFoods(foodApi)
-
-}
-
-=======
 function getFoodApiMoods(mood){
     let apimoods = []
     switch(mood){
@@ -242,7 +182,6 @@ async function returnFoods (ourMood){
     }
     await fetchFoods(foodApi)
 }
->>>>>>> doug
 
 
 
