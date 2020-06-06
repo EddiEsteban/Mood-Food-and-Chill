@@ -20,7 +20,7 @@ body {
 
 
 
-
+/* Sadia Can I erase this?
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
@@ -42,7 +42,9 @@ body {
   max-width: 18rem;
   margin: auto;
   text-align: center;
-}
+} */
+
+
 
 .boxTitle {
   display: inline-block;
