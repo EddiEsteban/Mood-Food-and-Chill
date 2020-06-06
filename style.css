@@ -26,12 +26,8 @@ body {
 }
 
 
-<<<<<<< HEAD
 
 /* Sadian Can I erase this?
-=======
-/* Sadia Can I erase this?
->>>>>>> a2f63dbd6b41f01fd26baaa82a3d5b05b846d1a7
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
@@ -54,11 +50,6 @@ body {
   margin: auto;
   text-align: center;
 } */
-<<<<<<< HEAD
-=======
-
-
->>>>>>> a2f63dbd6b41f01fd26baaa82a3d5b05b846d1a7
 
 .boxTitle {
   display: inline-block;
