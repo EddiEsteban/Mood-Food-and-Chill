@@ -96,6 +96,7 @@ async function returnMoviesAndFood(mood){
         }
     }
 
+    document.querySelector('#foods').innerHTML = ''
     await returnFoods(mood)
     let foods = JSON.parse(localStorage.foods)
     console.log(foods)
