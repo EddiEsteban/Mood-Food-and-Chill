@@ -23,9 +23,17 @@ Access this web app [here](https://eddiesteban.github.io/Mood-Food-and-Chill/). 
 
 <a id="toc-tech"></a>
 ## Technologies
-APIs: [TMDb](https://developers.themoviedb.org/3/getting-started/introduction), [Food-by-Mood API](https://github.com/MurphyPicard/food-by-mood-api/blob/master/README.md)
-Languages : html, css, javaScript
-Tools (or lib): jQuery, Bootstrap, Figma
+* APIs 
+    * [TMDb](https://developers.themoviedb.org/3/getting-started/introduction)
+    * [Food-by-Mood API](https://github.com/MurphyPicard/food-by-mood-api/blob/master/README.md)
+* Languages
+    * html
+    * css
+    * javaScript
+* Tools (or lib)
+    * jQuery
+    * Bootstrap
+    * Figma
 
 <a id="toc-license"></a>
 ## Licence
