@@ -1,6 +1,37 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 # Mood, Food, and Chill
+
+## Abstract
+
+
+## Table of Contents
+* General Information
+
+
+## General Information
+This web application is using serverside and third APIs to retreive moive and food information under users' mood.
+
+
+## Screenshots
+Mobile View
+Desktop View
+
+## Installation
+To use this web app you can click : [here](link)
+
+## Usage
+When user click the mood botton, then the application will show lists of moive on the movie session, and one recommendation food. And when user click search(?) button then it open a new page (rotten tomato / yandex(imagesearch))
+
+## Status
+Project in progress..
+
+## Technologies
+Languages : html, css, javaScript
+Tools(or lib): jQuery, Bootstrap, Figma
+
+#### Licence
+MIT license
+copy right (c) Doug Moore, Eddi Esteban, Sadia Batool, Samuel Yoo
+
 
 ## Contributors
 
@@ -9,9 +40,7 @@
 * Samuel Yoo
 * Eddi Esteban
 
-# Usage
 
-Give a mood, this app will return you a movie selection and a recommended food to chill with that mood 🍑🍑🍑🍑
 
 ## To-do list
 
@@ -46,8 +75,4 @@ Give a mood, this app will return you a movie selection and a recommended food t
 
 https://www.figma.com/file/sXehc3PojJoyHL9bahCCJM/Mood-Food-and-Chill?node-id=2%3A6
 >>>>>>> 3c4f703b10840713b5e8f1cc9a21cd3bec02ac89
-=======
-# Mood-Food-and-Chill
 
-https://www.figma.com/file/sXehc3PojJoyHL9bahCCJM/Mood-Food-and-Chill?node-id=2%3A6
->>>>>>> 3c4f703b10840713b5e8f1cc9a21cd3bec02ac89
