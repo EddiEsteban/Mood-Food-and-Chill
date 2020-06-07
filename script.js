@@ -1,3 +1,4 @@
+// Define Genre and categorized with three different moods
 const genreNames = ['Action', 'Adventure', 'Animation', 'Comedy', 
     'Documentary', 'Drama', 'Family', 'Fantasy',
     'History', 'Horror', 'Music', 'Mystery',
@@ -125,6 +126,7 @@ async function returnMoviesAndFood(mood){
     for (let j = 0; j < moviepicks.length; j ++){
         let movie = moviepicks[j]
         document.querySelector('#movieResultF').innerHTML += 
+        // alternative html contents with results
             `
             <div class="resultBox col-md-6">
             <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
@@ -160,6 +162,7 @@ async function returnMoviesAndFood(mood){
         let food = randomFood[i]
         console.log(food.photoUrl)
         document.querySelector('#foodResultF').innerHTML += 
+        // alternative html contents with results
         `
         <div class="resultBox col-md-6">
               <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
