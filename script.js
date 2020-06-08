@@ -110,6 +110,8 @@ async function returnMovies (mood){
 
 }
 
+
+// Bring Movie and Food Result Function
 async function returnMoviesAndFood(mood){
     event.preventDefault()
     await returnMovies(mood)
@@ -124,7 +126,6 @@ async function returnMoviesAndFood(mood){
             let movie = moviePage.results[j]
             movies.push(movie)
         }
-        // movies = moviePages[i].results
     }
     pickMovies(movies)
     let moviepicks = movies.slice(0, movieReturnCount);    // randomly pick movies from the list
@@ -145,11 +146,6 @@ async function returnMoviesAndFood(mood){
             </div>
             </div>
             `
-            // previous lines
-            // `<h3 class="resultBoxContent col"><h4 class="mb-0">${movie.original_title}</h3>`
-            // +`<strong class="d-inline-block mb-2 text-success">Genres: ${returnGenresById(movie.genre_ids, ', ')}</strong>`
-            // +`<div class="mb-1 textMutedChange">Release Year: ${movie.release_date.substr(0, 4)}</div>`
-            // +`<p class="mb-auto">${movie.overview}</p></div>`
     }
     document.querySelector('#foodResultF').innerHTML = ''
     await returnFoods(mood)
@@ -162,11 +158,11 @@ async function returnMoviesAndFood(mood){
         document.querySelector('#foodResultF').innerHTML += 
         // alternative html contents with results
         `
-        <div class="resultBox col-md-6">
+        <div class="resultBox col">
               <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                   <div class="resultBoxContent col">
                     <h3 class="mb-0">${food.title}</h3>
-                    <p class="d-inline-block mb-2 text-success"><strong>Ingredients:</strong> ${food.ingredients}</p>
+                    <p class="d-inline-block mb-2 textInfo"><strong>Ingredients:</strong> ${food.ingredients}</p>
                     <div class="mb-1 textMutedChange"><strong>Prep Time:</strong> ${food.prepTime} min, <strong>Cook Time: </strong>${food.cookTime} min<</div>
                     <p class="mb-auto"><strong>Instructions:</strong> ${food.instructions}</p>
                     <a href="https://yandex.com/images/search?from=tabbar&text= + ${food.title}" class="stretched-link">Search more Image</a>
@@ -174,23 +170,6 @@ async function returnMoviesAndFood(mood){
                 </div>
           </div>
         `
-            // previouse lines
-            // `<div class="card" style="width: 18rem;">
-            //     <img src="${food.photoUrl}" class="card-img-top"/>
-            //     <div class="card-body">
-            //         <h5 class="card-title">${food.title}</h5>
-            //         <p class="card-text"><strong>Ingredients:</strong> ${food.ingredients}</p>
-            //         <p class="card-text"><strong>Instructions:</strong> ${food.instructions}</p>
-            //         <p class="card-text"><strong>Prep Time:</strong> ${food.prepTime} min; <strong>Cook Time: </strong>${food.cookTime} min</p>
-            //     </div>
-            // </div><hr/>`
-        //     <div class="col-auto d-none d-lg-block">
-        //     <svg class="bd-placeholder-img" width="200" height="250" xmlns="${food.photoUrl}" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-        //       <title>Placeholder</title>
-        //       <rect width="100%" height="100%" fill="#55595c"></rect>
-        //       <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-        //     </svg>
-        //   </div> // images
         }
 }
 
@@ -226,5 +205,5 @@ async function returnFoods (ourMood){
                 localStorage.foods = JSON.stringify(foodsByMood2Array) 
             }).catch(error => console.warn(error))
     }
-    await fetchFoods(foodMutedChange)
+    await fetchFoods(foodApi)
 }
