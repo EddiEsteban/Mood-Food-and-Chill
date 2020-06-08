@@ -53,9 +53,42 @@ const foodReturnCount = 1
 // Randomly pick movieReturnCount # of movies from the list and return
 function pickMovies (movieObjects) {
     var result = [];
-    for (var i = 0; i < movieReturnCount; i++) {
-        result.push(movieObjects[Math.floor(Math.random() * movieObjects.length)]);
-    }
+    // for (var i = 0; i < movieReturnCount; i++) {
+    //     result.push(movieObjects[Math.floor(Math.random() * movieObjects.length)]);
+    // }
+
+
+    var outputArray = []; 
+          
+    // Count variable is used to add the 
+    // new unique value only once in the 
+    // outputArray. 
+    var count = 0; 
+      
+    // Start variable is used to set true 
+    // if a repeated duplicate value is  
+    // encontered in the output array. 
+    var start = false; 
+      
+    for (j = 0; j < movieReturnCount; j++) { 
+        for (k = 0; k < movieReturnCount; k++) { 
+            
+            result[k] = movieObjects[Math.floor(Math.random() * movieObjects.length)];
+            console.log(`result[k]: ${result[k].original_title}`);
+            if ( movieObjects[j] == result[k] ) { 
+                start = true; 
+            } 
+        } 
+        count++; 
+        if (count == 1 && start == false) { 
+            result.push(movieObjects[j]); 
+        } 
+        start = false; 
+        count = 0; 
+    } 
+
+
+
     return result;
 }
 
@@ -116,7 +149,6 @@ async function returnMoviesAndFood(mood){
     await returnMovies(mood)
     let moviePages = JSON.parse(localStorage.movies)
     let movies = []
-    // console.log(moviePages)
 
     document.querySelector('#movieResultF').innerHTML = ''
     for (let i = 0; i < moviePages.length ; i ++){
@@ -125,6 +157,8 @@ async function returnMoviesAndFood(mood){
     let moviepicks = pickMovies(movies);    // randomly pick movies from the list
     for (let j = 0; j < moviepicks.length; j ++){
         let movie = moviepicks[j]
+        console.log(`[returnMoviesAndFood] movie.original_title: ${movie.original_title}`);
+
         document.querySelector('#movieResultF').innerHTML += 
         // alternative html contents with results
             `
@@ -230,16 +264,3 @@ async function returnFoods (ourMood){
     }
     await fetchFoods(foodApi)
 }
-
-
-
-// FoodData();
-
-
-
-/*
-Notes for us to do
-array of genreNames
-match up genrenames to the 3 moods
-use genreNames to get the ids and then fetch based on genre
-*/
