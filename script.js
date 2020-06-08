@@ -234,3 +234,4 @@ async function returnFoods (ourMood){
             }).catch(error => console.warn(error))
     }
     await fetchFoods(foodMutedChange)
+}
