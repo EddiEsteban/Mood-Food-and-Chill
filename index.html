@@ -7,7 +7,6 @@
     <title>Mood Food and Chill</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="Assets/style.css" rel="stylesheet"/>
-    <link rel="icon" href="Assets/favicon.ico">  
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 </head>  
 
@@ -33,6 +32,9 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#AboutUs"> About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#ContactUs"> Contact Us</a>
             </li>
             </ul>
         </div>
@@ -146,8 +148,8 @@
                   </div>
               </div>
             </div>
-          </div>
-       
+      </div>
+
 
 <!-- About us Section -->
       <div class="row" id="AboutUs">
@@ -180,85 +182,64 @@
       </div>
 
 
+<!-- Contact us Section -->
+      <div class="row mb-4" id="#ContactUs">
 
+        <!--Section heading-->
+        <h1 class="boxTitle row my-4">Contact us</h1>
+        <!--Section description-->
+        <p class="text-left w-responsive mx-auto mb-5">Do you have any questions or want you accelate your business? Please do not hesitate to contact us directly. Our team will come back to you within
+            asap to help you.<button class="toggleBtn" onclick="toggleContactUs()">...Click Here</button></p>
 
-<div class="row mb-4" id="#ContactUs">
+        <div class="container-fluid" id="contactUsForm">
 
-  <!--Section heading-->
-  <h1 class="boxTitle row my-4">Contact us</h1>
-  <!--Section description-->
-  <p class="text-left w-responsive mx-auto mb-5">Do you have any questions or want you accelate your business? Please do not hesitate to contact us directly. Our team will come back to you within
-      asap to help you.<button class="toggleBtn" onclick="toggleContactUs()">...Click Here</button></p>
+            <!--Grid column-->
+            <div class="col-md-9 mb-md-0 mb-5">
+                <form id="contactForm">
 
-  <div class="row" id="contactUsForm">
+                    <!--Grid row-->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="md-form mb-0">
+                                <input type="text" class="form-control">
+                                <label for="name">Your name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="md-form mb-0">
+                                <input type="text" class="form-control">
+                                <label for="email">Your email</label>
+                            </div>
+                        </div>
 
-      <!--Grid column-->
-      <div class="col-md-9 mb-md-0 mb-5">
-          <form id="contactForm" class="text-left">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="md-form mb-0">
+                                <input type="text" class="form-control">
+                                <label for="subject" class="">Subject</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="md-form">
+                                <textarea type="text" rows="4" class="form-control md-textarea"></textarea>
+                                <label for="message">Your message</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
 
-              <!--Input and msg-->
-              <div class="row">
-                  <div class="col-md-6">
-                      <div class="md-form mb-0">
-                          <input type="text" class="form-control">
-                          <label for="name">Your name</label>
-                      </div>
-                  </div>
-                  <div class="col-md-6">
-                      <div class="md-form mb-0">
-                          <input type="text" class="form-control">
-                          <label for="email">Your email</label>
-                      </div>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-12">
-                      <div class="md-form mb-0">
-                          <input type="text" class="form-control">
-                          <label for="subject" class="">Subject</label>
-                      </div>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-12">
-                      <div class="md-form">
-                          <textarea type="text" rows="4" class="form-control md-textarea"></textarea>
-                          <label for="message">Your message</label>
-                      </div>
-                  </div>
-              </div>
-          </form>
-
-          <div class="text-right text-md-left">
-              <a class="btn btn-secondary disabled" onclick="">Send</a><p id="subAlert"></p>
-          </div>
+                <div class="text-center text-md-left">
+                    <a class="btn btn-secondary" onclick="document.getElementById('contact-form').submit();">Send</a>
+                </div>
+                <div class="status"></div>
+            </div>
+        </div>
       </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </div>
-
-
-
-
-
-
-
-
 
  </div>
 
