@@ -85,12 +85,12 @@ body {
   padding-top: 40px;
   padding-bottom: 130px;
   padding-left: 10px;
-  padding-right: 90px;
+  padding-right: 30px;
   margin-bottom: 0;
   background-color: darkslategray; /*backup*/
   color: white;
   border-radius: 0;
-  background-image: url("https://images.unsplash.com/photo-1527224538127-2104bb71c51b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80");
+  background-image: url(Images/bgImage.jpg);
   background-size: cover;
 }
 
@@ -99,6 +99,7 @@ body {
   font-size: 120%;
   text-align: left;
   margin-left:10%;
+  margin-bottom: 10%;
 }  
 .jumbotron-description{
   font-weight: 100;
