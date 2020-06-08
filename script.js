@@ -42,10 +42,6 @@ function returnGenresById(genres,delimiter='|') { // "|" for OR, "," for AND
     return (tempGenreList=="") ? "N/A" : tempGenreList.substring(1, tempGenreList.length); 
 }
 
-// GIVEN a user-inputted mood
-    // fetch an array of movies filtered by genres that match the mood
-    // fetch an array of foods filtered by genres that match the mood
-
 const pageLength = 10
 const movieReturnCount = 5
 const foodReturnCount = 1
@@ -124,13 +120,11 @@ async function returnMoviesAndFood(mood){
             let movie = moviePage.results[j]
             movies.push(movie)
         }
-        // movies = moviePages[i].results
     }
     pickMovies(movies)
     let moviepicks = movies.slice(0, movieReturnCount);    // randomly pick movies from the list
     for (let j = 0; j < moviepicks.length; j ++){
         let movie = moviepicks[j]
-        console.log(`[returnMoviesAndFood] movie.original_title: ${movie.original_title}`);
 
         document.querySelector('#movieResultF').innerHTML += 
         // alternative html contents with results
@@ -154,11 +148,6 @@ async function returnMoviesAndFood(mood){
             </div>
             </div>
             `
-            // previous lines
-            // `<h3 class="resultBoxContent col"><h4 class="mb-0">${movie.original_title}</h3>`
-            // +`<strong class="d-inline-block mb-2 text-success">Genres: ${returnGenresById(movie.genre_ids, ', ')}</strong>`
-            // +`<div class="mb-1 textMutedChange">Release Year: ${movie.release_date.substr(0, 4)}</div>`
-            // +`<p class="mb-auto">${movie.overview}</p></div>`
     }
     document.querySelector('#foodResultF').innerHTML = ''
     await returnFoods(mood)
@@ -190,16 +179,6 @@ async function returnMoviesAndFood(mood){
                 </div>
           </div>
         `
-            // previouse lines
-            // `<div class="card" style="width: 18rem;">
-            //     <img src="${food.photoUrl}" class="card-img-top"/>
-            //     <div class="card-body">
-            //         <h5 class="card-title">${food.title}</h5>
-            //         <p class="card-text"><strong>Ingredients:</strong> ${food.ingredients}</p>
-            //         <p class="card-text"><strong>Instructions:</strong> ${food.instructions}</p>
-            //         <p class="card-text"><strong>Prep Time:</strong> ${food.prepTime} min; <strong>Cook Time: </strong>${food.cookTime} min</p>
-            //     </div>
-            // </div><hr/>`
         }
 }
 
