@@ -226,8 +226,8 @@ function toggleAboutUs() {
     }
   }
 
-  document.addEventListener("click", submitMsg);
-  function submitMsg() {
-    document.getElementById("subAlert").innerHTML =''
-    document.getElementById("subAlert").innerHTML += "Unable to reach team-coding now.<br>"
-  }
+//   document.addEventListener("click", submitMsg);
+//   function submitMsg() {
+//     // document.getElementById("subAlert").innerHTML =''
+//     document.getElementById("subAlert").innerHTML += "Unable to reach team-coding now.<br>"
+//   }
