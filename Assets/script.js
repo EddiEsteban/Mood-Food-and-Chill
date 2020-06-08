@@ -211,17 +211,17 @@ async function returnFoods (ourMood){
 function toggleAboutUs() {
     var x = document.getElementById("aboutUsPar");
     if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
       x.style.display = "none";
+    } else {
+      x.style.display = "block";
     }
   }
 //CONTACT US toggle btn
   function toggleContactUs() {
     var x = document.getElementById("contactUsForm");
     if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
       x.style.display = "none";
+    } else {
+      x.style.display = "block";
     }
   }
