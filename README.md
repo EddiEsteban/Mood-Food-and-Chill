@@ -19,7 +19,7 @@ Access this web app [here](https://eddiesteban.github.io/Mood-Food-and-Chill/). 
 
 <a id="toc-demo"></a>
 ## Demo
-![demo git description](gifLink)
+![demo git description](Assets/Images/demo.gif)
 
 <a id="toc-tech"></a>
 ## Technologies
