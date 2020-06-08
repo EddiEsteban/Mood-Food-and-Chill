@@ -210,7 +210,7 @@ async function returnFoods (ourMood){
 //ABOUT US toggle btn
 function toggleAboutUs() {
     var x = document.getElementById("aboutUsPar");
-    if (x.style.display === "none") {
+    if (x.style.display === "block") {
       x.style.display = "none";
     } else {
       x.style.display = "block";
@@ -219,7 +219,7 @@ function toggleAboutUs() {
 //CONTACT US toggle btn
   function toggleContactUs() {
     var x = document.getElementById("contactUsForm");
-    if (x.style.display === "none") {
+    if (x.style.display === "block") {
       x.style.display = "none";
     } else {
       x.style.display = "block";
