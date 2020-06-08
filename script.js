@@ -233,4 +233,4 @@ async function returnFoods (ourMood){
                 localStorage.foods = JSON.stringify(foodsByMood2Array) 
             }).catch(error => console.warn(error))
     }
-    await fetchFoods(foodMutedChange
+    await fetchFoods(foodMutedChange)
