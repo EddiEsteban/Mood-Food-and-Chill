@@ -11,7 +11,7 @@
 
 <a id="toc-info"></a>
 ## General Information
-This web application is using serverside and third APIs to retreive movie and food information under users' mood. This product uses the TMDb API but is not endorsed or certified by TMDb.
+This web application is using serverside and third party APIs to retrieve movie and food information based on user's mood. This product uses the TMDb API but is not endorsed or certified by TMDb.
 
 <a id="toc-usage"></a>
 ## Usage

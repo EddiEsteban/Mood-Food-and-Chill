@@ -147,7 +147,7 @@ async function returnMoviesAndFood(mood){
                 <div class="resultBoxContent col">
                   <h3 class="mb-0">${movie.original_title}</h3>
                   <strong class="d-inline-block mb-2 text-success">Genres: ${returnGenresById(movie.genre_ids, ', ')}</strong>
-                  <div class="mb-1 text-muted">Release Year: ${movie.release_date.substr(0, 4)}</div>
+                  <div class="mb-1 textMutedChange">Release Year: ${movie.release_date.substr(0, 4)}</div>
                   <p class="mb-auto">${movie.overview}</p>
                   <a href="https://www.rottentomatoes.com/search?search= + ${movie.original_title}" class="stretched-link">Search at Rotten Tomatoes</a>
                 </div>
@@ -157,7 +157,7 @@ async function returnMoviesAndFood(mood){
             // previous lines
             // `<h3 class="resultBoxContent col"><h4 class="mb-0">${movie.original_title}</h3>`
             // +`<strong class="d-inline-block mb-2 text-success">Genres: ${returnGenresById(movie.genre_ids, ', ')}</strong>`
-            // +`<div class="mb-1 text-muted">Release Year: ${movie.release_date.substr(0, 4)}</div>`
+            // +`<div class="mb-1 textMutedChange">Release Year: ${movie.release_date.substr(0, 4)}</div>`
             // +`<p class="mb-auto">${movie.overview}</p></div>`
     }
     document.querySelector('#foodResultF').innerHTML = ''
@@ -176,7 +176,7 @@ async function returnMoviesAndFood(mood){
                   <div class="resultBoxContent col">
                     <h3 class="mb-0">${food.title}</h3>
                     <p class="d-inline-block mb-2 text-success"><strong>Ingredients:</strong> ${food.ingredients}</p>
-                    <div class="mb-1 text-muted"><strong>Prep Time:</strong> ${food.prepTime} min, <strong>Cook Time: </strong>${food.cookTime} min<</div>
+                    <div class="mb-1 textMutedChange"><strong>Prep Time:</strong> ${food.prepTime} min, <strong>Cook Time: </strong>${food.cookTime} min<</div>
                     <p class="mb-auto"><strong>Instructions:</strong> ${food.instructions}</p>
                     <a href="https://yandex.com/images/search?from=tabbar&text= + ${food.title}" class="stretched-link">Search more Image</a>
                   </div>
@@ -235,5 +235,5 @@ async function returnFoods (ourMood){
                 localStorage.foods = JSON.stringify(foodsByMood2Array) 
             }).catch(error => console.warn(error))
     }
-    await fetchFoods(foodApi)
+    await fetchFoods(foodMutedChange)
 }

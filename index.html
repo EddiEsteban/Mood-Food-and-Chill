@@ -41,7 +41,7 @@
 
 <!-- Jumbotron   - need t0 work on Parallax  - image size flexibility -->
     <section class="jumbotron text-center">
-      <h2 class="jumbotron-heading">Yes, Your Mood Matter!</h2>
+      <h1 class="jumbotron-heading">Your Mood Matters!</h1>
       <p class="jumbotron-description">You don't make a movie, the movie makes you.</br> - Jean-Luc Godard</p>
     </section>
 
@@ -50,78 +50,74 @@
       <div class="container"> 
         
 <!-- Mood Selection Section -->
-        <div class="row" id="Mood">
-            <h3 class="boxTitle">Mood</h3> 
-            <p>Choose a mood that you are in , and we will give you list of movie suggestion along with snack that you can enjoy!.</p>   
-             
- 
+         <div class="row" id="Mood">
+            <h1 class="boxTitle">Mood</h1> 
+            <p>Choose a mood that you are in , and we will give you list of movie suggestions along with a snack that you can enjoy!</p>   
             
-          <div class="col-md-3"> 
-            <h5 class="moodTitle"> Neutral</h5>
-            <p class="moodText">  Feeling a bit bored, or want to learn something new?   </p>
-            <button id='neutralBtn' type="button" onClick='returnMoviesAndFood("neutral")' class='btn btn-warning'>
-              Neutral
-            </button>
+            <div id="container" class="row">
+
+              <div class="col moodBtn"> 
+                <!--<h5 class="moodTitle"> Neutral</h5>-->
+                <button id='neutralBtn' type="button" onClick='returnMoviesAndFood("neutral")' class='btn btn-neutral'>
+                  Neutral <span style='font-size:50px;'>&#128528;</span>
+
+
+                </button>
+              </div>
+
+              <div class="col moodBtn">
+                <!--<h5 class="moodTitle"> Relaxed </h5>-->
+                <button id='relaxedBtn' type="button" onClick='returnMoviesAndFood("relaxed")' class='btn btn-relax'>
+                  Relaxed   <span style='font-size:50px;'>&#128524;</span>
+
+
+                </button>
+              </div>
+
+              <div class="col moodBtn">
+                <!--<h5 class="moodTitle"> Energetic </h5>-->
+                <button id='energeticBtn' type="button" onClick='returnMoviesAndFood("energetic")' class='btn btn-energetic'>
+                  Energetic <span style='font-size:50px;'>&#128512;</span>
+                </button>
+              </div>
+        
+            </div>  
           </div>
 
-          <div class="col-md-3">
-            <h5 class="moodTitle"> Relaxed </h5>
-            <p class="moodText">  Had a rough day? Need to take your mind of thing? We got some great movies for that </p> 
-            <button id='relaxedBtn' type="button" onClick='returnMoviesAndFood("relaxed")' class='btn btn-primary'>
-              Relaxed
-            </button>
-          </div>
+         
 
-          <div class="col-md-3">
-            <h5 class="moodTitle"> Energetic </h5>
-            <p class="moodText"> Need a movie filled with action packed plot?  We got just the right movies for you that will keep you on the edge of your seat! </p> 
-            <button id='energeticBtn' type="button" onClick='returnMoviesAndFood("energetic")' class='btn btn-danger'>
-              Energetic
-            </button>
-          </div>
-
-        </div> 
-
-       
-<!-- Movie Result Section  - need to work on default result(the contents before reterving results) -->
+<!-- Movie Result Section -->
 
         <div class="row" id="Movie">
-            <p class="boxTitle">Movie</p></br>
-            <p>Here is our suggestion under your mood <!--we can link our mood --> we can write down someting interesting or default recommendation. </p>  
+            <h1 class="boxTitle">Movie</h1></br>
+            <p>Here is our suggestions for movies based on your mood </p>  
         <div  id="movieResultF">
           <div class="resultBox col-md-6">
               <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                  <div class="col-auto d-none d-lg-block">
-                    <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                      <title>Placeholder</title>
-                      <rect width="100%" height="100%" fill="#55595c"></rect>
-                      <text x="50%" y="50%" fill="#eceeef" dy=".3em">movie Photo</text>
-                    </svg>
-                  </div>
                   <div class="resultBoxContent col">
-                    <h3 class="mb-0">Movie title</h3>
-                    <strong class="d-inline-block mb-2 text-success">Genre</strong>
-                    <div class="mb-1 text-muted">Release year</div>
-                    <p class="mb-auto">This is a space for information of moive or short summery about moive or something useful info from api.</p>
-                    <a href="#" class="stretched-link">Search Google or imdb</a>
+                    <h3 class="mb-0">The Matrix</h3><h6 class="textMutedChange">Most Popular!</h6>
+                    <strong class="d-inline-block mb-2 textInfo">Sci-fi / Action</strong>
+                    <div class="mb-1 textMutedChange">1999</div>
+                    <p class="mb-auto">Thomas Anderson, a computer programmer, is led to fight an underground war against powerful computers who have constructed his entire reality with a system called the Matrix.</p>
+                    <a href="https://www.rottentomatoes.com/m/matrix" class="stretched-link">Search at Rotten Tomatoes</a>
                   </div>
               </div>
           </div>
           <div class="resultBox col-md-6">
             <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                <div class="col-auto d-none d-lg-block">
+                <!-- <div class="col-auto d-none d-lg-block">
                   <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                     <title>Placeholder</title>
                     <rect width="100%" height="100%" fill="#55595c"></rect>
                     <text x="50%" y="50%" fill="#eceeef" dy=".3em">movie Photo</text>
                   </svg>
-                </div>
+                </div> -->
                 <div class="resultBoxContent col">
-                  <h3 class="mb-0">Movie title</h3>
-                  <strong class="d-inline-block mb-2 text-success">Genre</strong>
-                  <div class="mb-1 text-muted">Release year</div>
-                  <p class="mb-auto">This is a space for information of moive or short summery about moive or something useful info from api.</p>
-                  <a href="#" class="stretched-link">Search Google or imdb</a>
+                  <h3 class="mb-0">Avengers: Endgame</h3><h6 class="textMutedChange">Most Popular!</h6>
+                  <strong class="d-inline-block mb-2 textInfo">Sci-fi / Action</strong>
+                  <div class="mb-1 textMutedChange">2019</div>
+                  <p class="mb-auto">After Thanos, an intergalactic warlord, disintegrates half of the universe, the Avengers must reunite and assemble again to reinvigorate their trounced allies and restore balance.</p>
+                  <a href="https://www.rottentomatoes.com/m/avengers_endgame" class="stretched-link">Search at Rotten Tomatoes</a>
                 </div>
             </div>
           </div>
@@ -129,66 +125,71 @@
         </div>  
 
 
-<!-- Food Result Section  - need to work on default result(the contents before reterving results) -->        
-
-        <div class="row" id="Food">
-            <h3 class="boxTitle">Food</h3>
-            <span>Here is our suggestion under your mood <!--we can link our mood --> we can write down someting interesting or default recommendation. </span>
-         <div id="foodResultF">   
+<!-- Food Result Section -->
+      <div class="row" id="Food">
+            <h1 class="boxTitle">Food</h1>
+            <p> This will defiently enhance a good mood or fend off a bad one. </p>
+          <div id="foodResultF">
           <div class="resultBox col-md-6">
               <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                   <div class="resultBoxContent col">
-                    <h3 class="mb-0">Food Name</h3>
-                    <strong class="d-inline-block mb-2 text-success">Cuisines</strong>
-                    <div class="mb-1 text-muted">Cooking time or Prep time</div>
-                    <p class="mb-auto">This is a space for food infomation may be ingredients something........................</p>
-                    <a href="#" class="stretched-link">Search Google</a>
+                    <h3 class="mb-0">Poutine</h3><h6 class="textMutedChange">Most Popular!</h6>
+                    <strong class="d-inline-block mb-2 textInfo">Canadian!</strong>
+                    <div class="mb-1 textMutedChange">20mins</div>
+                    <p class="mb-auto">Poutine is a dish that includes french fries and cheese curds topped with a brown gravy. It originated in the Canadian province of Quebec and emerged in the late 1950s in the Centre-du-Québec area. It has long been associated with Quebec cuisine.</p>
+                    <a href="https://www.google.com/search?q=poutine&sxsrf=ALeKk03Tk6_SwqEEXxVeHN-6zBF3y47Qew:1591580593721&source=lnms&tbm=isch&sa=X&ved=2ahUKEwi_7K3fi_HpAhVklnIEHTusCZAQ_AUoAXoECBgQAw&biw=1309&bih=746" class="stretched-link">Search More Image</a>
                   </div>
-                  <div class="col-auto d-none d-lg-block"><!-- photo URL -->
-                    <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                      <title>Placeholder</title>
-                      <rect width="100%" height="100%" fill="#55595c"></rect>
-                      <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                    </svg> 
-                  </div>
-                </div>
+              </div>
           </div>
-          <div class="resultBox col-md-6">
+          </div>
+          <div id="foodAdBox">
+            <div class="resultBox col-md-6">
               <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                   <div class="resultBoxContent col">
-                    <h3 class="mb-0">Food Name</h3>
-                    <strong class="d-inline-block mb-2 text-success">Cuisines</strong>
-                    <div class="mb-1 text-muted">Cooking time?</div>
-                    <p class="mb-auto">This is a space for food infomation may be ingredients something........................</p>
-                    <a href="https://yandex.com/images/search?from=tabbar&text= + Result" class="stretched-link">Search Google</a>
-                  </div>
-                  <div class="col-auto d-none d-lg-block">
-                    <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                      <title>Placeholder</title>
-                      <rect width="100%" height="100%" fill="#55595c"></rect>
-                      <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                    </svg>
+                    <h3 class="mb-0">Uber Eat!</h3>
+                    <strong class="d-inline-block mb-2 textInfo">Waiting for Sponsor</strong>
+                    <div class="mb-1 textMutedChange">Contact us for a free trial</div>
+                    <p class="mb-auto">Yes, We are big fan of Uber Eat. Takes couple taps to get your Meal. and we are open for sponsor from YOU!</p>
+                    <a href="https://www.ubereats.com/" class="stretched-link">Let's Uber Eat</a>
                   </div>
                 </div>
+            </div>
           </div>
-        </div>
-        </div>  
+      </div>
+       
 
 <!-- About us Section -->
       
        <div class="row" id="AboutUs">
-         <h3 class="boxTitle">About Us</h3>
-         <p1> Hi there ! We are Team Coding aka Team C.</p1>
-         <br>
-         <p1> 
-           <p>Our idea for this website was to provide a solution to countless hours of browsing for a good movie or show to watch.</p>
-           <p>With so many streaming devices we spend a lot of time browsing threw content finding the right movie to watch.  So our team came up with a solution.
-              Based on your mood, we will suggest you movies that you can watch saving valuable screen time. We also as a bonus suggest a food to go along with the movie and your mood. </p>
-              <p>We hope that you enjoy using our website . If you have any feedback  please feel free to contact us. </p>
-              <p>Your Truly </p>
-           </br>
-            <p>Team Coding </p>Team Coding. 
-          <p>(Eddi, Doug, Samuel & Sadia ) </p> 
+         <h1 class="boxTitle">About Us</h1> 
+         <div class="container">
+         
+         
+         <p> Hi! </p> 
+         
+           We are Team Coding aka Team C.</p3> <br> 
+           <br>
+ 
+        <div class="tab">
+           <p3> Our idea for this website was to provide a solution to the countless hours lost due to browsing for a good movie  to watch.</p3>
+           <p3>With so many streaming devices we spend a lot of our time browsing through content finding the right movie to watch.  So our team came up with a simple solution. 
+              Based on your mood, we will narrow down your seach and give you a list of movies for you to choose. This will saving valuable screen time in which you can use to prepare yourself a snack instead. </p3>
+              <p3> Also as a bonus we provide you a meal or snack to go along with your movie, making your movie night more enjoyable. </p3> <br>
+           <br>
+           
+              <p3>We hope that you enjoy using our website . If you have any feedback please send them our way. </p3>
+              <br>
+              <br>
+              <br>
+              
+              <p3>Cheers! </p3> <br>  
+              <br>
+
+            <p3>Team Coding </p3> <br> 
+            <br>
+
+          <p3>Eddi, Doug, Samuel & Sadia  </p3> 
+        </div>
        </div>
 
 
@@ -200,7 +201,7 @@
 </div>
 <footer>
   <div class="container">
-    <p>This web application is &copy; team-coding</p>
+    <p4>This web application is &copy; team-coding</p4>
   </div>
 </footer>
 

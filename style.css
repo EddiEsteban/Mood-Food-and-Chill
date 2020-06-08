@@ -1,21 +1,68 @@
 body {
-  background-color: #a8a8a8;
+  background-color: #808080;
 }
 
 .row {
   padding: 0rem;
-  background-color: #a8a8a8;
+  background-color: #808080;
   align-content: space-between;
 }
 
+.moodBtn {
+  margin: 2px; 
+  float: left; 
+  cursor: pointer;
+} 
+.btn-neutral {
+  color: black;
+  background-color: lightgray;
+  border-color: green;
+  border-width: 0.1rem;
+  border-radius: 1rem;
+  width: 5.5rem;
+}
+.stretched-link{
+  color: darkblue;
+}
+
+.textMutedChange{
+  color: #333333;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.btn-relax {
+  color: black;
+  background-color: lightgray;
+  border-color: blue; 
+  border-width: 0.1rem;
+  border-radius: 1rem;
+  width: 5.5rem;
+}
+
+
+.btn-energetic {
+  color: black;
+  background-color: lightgray;
+  border-color: red;
+  border-width: 0.1rem;
+  border-radius: 1rem;
+  width: 5.5rem;
+}
+
+
 .navbar {
   margin-bottom: 0;
-  background-color: #a8a8a8;
+  background-color: #808080;
   color: #260703;
-}   
+}
+
+.textInfo{
+  color: darkgreen;
+}
 
 .resultBox{
-  padding-top: 1.3rem;
+  padding-top: 0.2rem;
   padding-left: 0.1rem;
   padding-right: 0.1rem;
 }
@@ -27,58 +74,38 @@ body {
   width: 100%;
 }
 
-
-
-/* Sadian Can I erase this?
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  grid-gap: 20px;
-}
-
-.card {
-  display: grid;
-  grid-template-rows: max-content 200px 1fr;
-}
-
-.card img {
-  object-fit: cover;
-  /* width: 100%;
-  height: 100%; 
-}
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 18rem;
-  margin: auto;
-  text-align: center;
-} */
-
 .boxTitle {
   display: inline-block;
-  color: grey;
-  font-size: 18px; 
+  color: black;
+  font-size: 30px;
+  padding-top: 20px;
 }
 .jumbotron {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  margin-bottom: 1%;
+  padding-top: 40px;
+  padding-bottom: 130px;
+  padding-left: 10px;
+  padding-right: 90px;
+  margin-bottom: 0;
   background-color: darkslategray; /*backup*/
   color: white;
   border-radius: 0;
-  padding: 25%;
   background-image: url("https://images.unsplash.com/photo-1527224538127-2104bb71c51b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80");
   background-size: cover;
 }
 
 .jumbotron-heading {
   font-weight: 400;
-  font-size: 100%;
+  font-size: 120%;
   text-align: center;
-}
+}  
 .jumbotron-description{
   font-weight: 100;
-  font-size: 8px;
+  font-size: 12px;
   text-align: right;
+}
+
+.container-fluid{
+  margin-top: 0.1rem;
 }
 
 .jumbotron .container {
@@ -109,7 +136,51 @@ footer {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-
+o
 footer p {
   margin-bottom: 0.25rem;
+} 
+
+.h1 {
+  font-size: 40px; 
+  font-family: 'Didact Gothic', sans-serif;
+
 }
+
+.p1{ 
+  font-size:18px; 
+  font-family: 'Didact Gothic', sans-serif; 
+  margin-left: 2.5em;
+  padding: 0 7em 2em 0;
+  border-width: 2px;
+
+} 
+
+.p {
+  font-size: 12px;  
+  font-family: 'Didact Gothic', sans-serif;
+}  
+
+p4{ 
+  font-size: 10px;  
+  font-family: 'Didact Gothic', sans-serif;
+}
+
+.p4{ 
+  font-size: 5px;  
+  font-family: 'Didact Gothic', sans-serif;
+} 
+
+.btn-group button { 
+  float: left;  
+} 
+ 
+div.indent {
+  text-indent: 20%
+} 
+
+.tab {
+  margin-left :2.5em; 
+}
+
+
