@@ -51,12 +51,11 @@ const movieReturnCount = 5
 const foodReturnCount = 1
 
 // Randomly pick movieReturnCount # of movies from the list and return
-function pickMovies (movieObjects) {
-    var result = [];
-    for (var i = 0; i < movieReturnCount; i++) {
-        result.push(movieObjects[Math.floor(Math.random() * movieObjects.length)]);
+function pickMovies(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
     }
-    return result;
 }
 
 // Randomly pick foodReturnCount # of foods from the list and return
@@ -116,13 +115,19 @@ async function returnMoviesAndFood(mood){
     await returnMovies(mood)
     let moviePages = JSON.parse(localStorage.movies)
     let movies = []
-    // console.log(moviePages)
 
     document.querySelector('#movieResultF').innerHTML = ''
     for (let i = 0; i < moviePages.length ; i ++){
-        movies = moviePages[i].results
+        let moviePage = moviePages[i]
+        for (let j = 0; j < moviePage.results.length ; j ++){
+            
+            let movie = moviePage.results[j]
+            movies.push(movie)
+        }
+        // movies = moviePages[i].results
     }
-    let moviepicks = pickMovies(movies);    // randomly pick movies from the list
+    pickMovies(movies)
+    let moviepicks = movies.slice(0, movieReturnCount);    // randomly pick movies from the list
     for (let j = 0; j < moviepicks.length; j ++){
         let movie = moviepicks[j]
         document.querySelector('#movieResultF').innerHTML += 
@@ -156,11 +161,11 @@ async function returnMoviesAndFood(mood){
     document.querySelector('#foodResultF').innerHTML = ''
     await returnFoods(mood)
     let foods = JSON.parse(localStorage.foods)
-    console.log(foods)
+    
     let randomFood = pickFood(foods)
     for (let i = 0; i < randomFood.length; i++){
         let food = randomFood[i]
-        console.log(food.photoUrl)
+        
         document.querySelector('#foodResultF').innerHTML += 
         // alternative html contents with results
         `
@@ -223,7 +228,7 @@ async function returnFoods (ourMood){
         return await fetch(api)
             .then(response => response.ok ? response.json() : Promise.reject('first then failed'))
             .then(function(foods){
-                console.log(foods)  
+                
                 foodsByMood2Array = foods.filter(foodsByMood2Filter)
                 localStorage.foods = JSON.stringify(foodsByMood2Array) 
             }).catch(error => console.warn(error))
