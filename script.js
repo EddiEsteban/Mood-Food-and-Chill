@@ -42,19 +42,20 @@ function returnGenresById(genres,delimiter='|') { // "|" for OR, "," for AND
     return (tempGenreList=="") ? "N/A" : tempGenreList.substring(1, tempGenreList.length); 
 }
 
-
+// GIVEN a user-inputted mood
+    // fetch an array of movies filtered by genres that match the mood
+    // fetch an array of foods filtered by genres that match the mood
 
 const pageLength = 10
 const movieReturnCount = 5
 const foodReturnCount = 1
 
 // Randomly pick movieReturnCount # of movies from the list and return
-function pickMovies (movieObjects) {
-    var result = [];
-    for (var i = 0; i < movieReturnCount; i++) {
-        result.push(movieObjects[Math.floor(Math.random() * movieObjects.length)]);
+function pickMovies(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
     }
-    return result;
 }
 
 // Randomly pick foodReturnCount # of foods from the list and return
@@ -117,19 +118,33 @@ async function returnMoviesAndFood(mood){
 
     document.querySelector('#movieResultF').innerHTML = ''
     for (let i = 0; i < moviePages.length ; i ++){
-        movies = moviePages[i].results
+        let moviePage = moviePages[i]
+        for (let j = 0; j < moviePage.results.length ; j ++){
+            
+            let movie = moviePage.results[j]
+            movies.push(movie)
+        }
+        // movies = moviePages[i].results
     }
-    let moviepicks = pickMovies(movies);    // randomly pick movies from the list
+    pickMovies(movies)
+    let moviepicks = movies.slice(0, movieReturnCount);    // randomly pick movies from the list
     for (let j = 0; j < moviepicks.length; j ++){
         let movie = moviepicks[j]
         document.querySelector('#movieResultF').innerHTML += 
         // alternative html contents with results
             `
-            <div class="resultBox col-md-5">
+            <div class="resultBox col-md-6">
             <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col-auto d-none d-lg-block">
+                  <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#55595c"></rect>
+                    <text x="50%" y="50%" fill="#eceeef" dy=".3em">movie Photo</text>
+                  </svg>
+                </div>
                 <div class="resultBoxContent col">
                   <h3 class="mb-0">${movie.original_title}</h3>
-                  <strong class="d-inline-block mb-2 textInfo">Genres: ${returnGenresById(movie.genre_ids, ', ')}</strong>
+                  <strong class="d-inline-block mb-2 text-success">Genres: ${returnGenresById(movie.genre_ids, ', ')}</strong>
                   <div class="mb-1 textMutedChange">Release Year: ${movie.release_date.substr(0, 4)}</div>
                   <p class="mb-auto">${movie.overview}</p>
                   <a href="https://www.rottentomatoes.com/search?search= + ${movie.original_title}" class="stretched-link">Search at Rotten Tomatoes</a>
@@ -139,18 +154,18 @@ async function returnMoviesAndFood(mood){
             `
             // previous lines
             // `<h3 class="resultBoxContent col"><h4 class="mb-0">${movie.original_title}</h3>`
-            // +`<strong class="d-inline-block mb-2 textInfo">Genres: ${returnGenresById(movie.genre_ids, ', ')}</strong>`
+            // +`<strong class="d-inline-block mb-2 text-success">Genres: ${returnGenresById(movie.genre_ids, ', ')}</strong>`
             // +`<div class="mb-1 textMutedChange">Release Year: ${movie.release_date.substr(0, 4)}</div>`
             // +`<p class="mb-auto">${movie.overview}</p></div>`
     }
     document.querySelector('#foodResultF').innerHTML = ''
     await returnFoods(mood)
     let foods = JSON.parse(localStorage.foods)
-    console.log(foods)
+    
     let randomFood = pickFood(foods)
     for (let i = 0; i < randomFood.length; i++){
         let food = randomFood[i]
-        console.log(food.photoUrl)
+        
         document.querySelector('#foodResultF').innerHTML += 
         // alternative html contents with results
         `
@@ -158,10 +173,17 @@ async function returnMoviesAndFood(mood){
               <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                   <div class="resultBoxContent col">
                     <h3 class="mb-0">${food.title}</h3>
-                    <p class="d-inline-block mb-2 textInfo"><strong>Ingredients:</strong> ${food.ingredients}</p>
+                    <p class="d-inline-block mb-2 text-success"><strong>Ingredients:</strong> ${food.ingredients}</p>
                     <div class="mb-1 textMutedChange"><strong>Prep Time:</strong> ${food.prepTime} min, <strong>Cook Time: </strong>${food.cookTime} min<</div>
                     <p class="mb-auto"><strong>Instructions:</strong> ${food.instructions}</p>
                     <a href="https://yandex.com/images/search?from=tabbar&text= + ${food.title}" class="stretched-link">Search more Image</a>
+                  </div>
+                  <div class="col-auto d-none d-lg-block">
+                    <svg class="bd-placeholder-img" width="200" height="250" xmlns="${food.photoUrl}" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                      <title>Placeholder</title>
+                      <rect width="100%" height="100%" fill="#55595c"></rect>
+                      <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                    </svg>
                   </div>
                 </div>
           </div>
@@ -176,13 +198,6 @@ async function returnMoviesAndFood(mood){
             //         <p class="card-text"><strong>Prep Time:</strong> ${food.prepTime} min; <strong>Cook Time: </strong>${food.cookTime} min</p>
             //     </div>
             // </div><hr/>`
-                            //   <div class="col-auto d-none d-lg-block">
-                //     <svg class="bd-placeholder-img" width="200" height="250" xmlns="${food.photoUrl}" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                //       <title>Placeholder</title>
-                //       <rect width="100%" height="100%" fill="#55595c"></rect>
-                //       <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                //     </svg>
-                //   </div>
         }
 }
 
@@ -213,10 +228,9 @@ async function returnFoods (ourMood){
         return await fetch(api)
             .then(response => response.ok ? response.json() : Promise.reject('first then failed'))
             .then(function(foods){
-                console.log(foods)  
+                
                 foodsByMood2Array = foods.filter(foodsByMood2Filter)
                 localStorage.foods = JSON.stringify(foodsByMood2Array) 
             }).catch(error => console.warn(error))
     }
-    await fetchFoods(foodApi)
-}
+    await fetchFoods(foodMutedChange
