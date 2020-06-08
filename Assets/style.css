@@ -79,6 +79,7 @@ body {
   color: black;
   font-size: 30px;
   padding-top: 20px;
+  margin-left: 0;
 }
 .jumbotron {
   padding-top: 40px;
@@ -96,7 +97,8 @@ body {
 .jumbotron-heading {
   font-weight: 400;
   font-size: 120%;
-  text-align: center;
+  text-align: left;
+  margin-left:10%;
 }  
 .jumbotron-description{
   font-weight: 100;
