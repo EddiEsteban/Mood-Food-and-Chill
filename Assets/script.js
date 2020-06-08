@@ -207,3 +207,27 @@ async function returnFoods (ourMood){
     }
     await fetchFoods(foodApi)
 }
+//ABOUT US toggle btn
+function toggleAboutUs() {
+    var x = document.getElementById("aboutUsPar");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+//CONTACT US toggle btn
+  function toggleContactUs() {
+    var x = document.getElementById("contactUsForm");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
+  document.addEventListener("click", submitMsg);
+  function submitMsg() {
+    document.getElementById("subAlert").innerHTML =''
+    document.getElementById("subAlert").innerHTML += "Unable to reach team-coding now.<br>"
+  }

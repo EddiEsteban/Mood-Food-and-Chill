@@ -121,8 +121,20 @@
             <h1 class="boxTitle row container-fluid">Food</h1>
             <p> This will defiently enhance a good mood or fend off a bad one. </p>
           <div class="row">
-            <div id="foodResultF">
+            <div class="resultBox col-md-6" id="foodAdBox">
+              <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                  <div class="resultBoxContent col">
+                    <h3 class="mb-0">Uber Eat!</h3>
+                    <strong class="d-inline-block mb-2 textInfo">Waiting for Sponsor</strong>
+                    <div class="mb-1 textMutedChange">Contact us for a free trial</div>
+                    <p class="mb-auto">Yes, We are big fan of Uber Eat. Takes couple taps to get your Meal. and we are open for sponsor from YOU!</p>
+                    <a href="https://www.ubereats.com/" class="stretched-link">Let's Uber Eat</a>
+                  </div>
+                </div>
+            </div>
+            <!-- <div id="foodResultF"> -->
               <div class="resultBox col-md-6">
+                <div id="foodResultF">
                   <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                       <div class="resultBoxContent col">
                         <h3 class="mb-0">Poutine</h3><h6 class="textMutedChange">Most Popular!</h6>
@@ -130,63 +142,124 @@
                         <div class="mb-1 textMutedChange">20mins</div>
                         <p class="mb-auto">Poutine is a dish that includes french fries and cheese curds topped with a brown gravy. It originated in the Canadian province of Quebec and emerged in the late 1950s in the Centre-du-Québec area. It has long been associated with Quebec cuisine.</p>
                         <a href="https://www.google.com/search?q=poutine&sxsrf=ALeKk03Tk6_SwqEEXxVeHN-6zBF3y47Qew:1591580593721&source=lnms&tbm=isch&sa=X&ved=2ahUKEwi_7K3fi_HpAhVklnIEHTusCZAQ_AUoAXoECBgQAw&biw=1309&bih=746" class="stretched-link">Search More Image</a>
-                      </div>
+                      </div></div>
                   </div>
               </div>
             </div>
-              <div class="resultBox col-md-6" id="foodAdBox">
-                <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                    <div class="resultBoxContent col">
-                      <h3 class="mb-0">Uber Eat!</h3>
-                      <strong class="d-inline-block mb-2 textInfo">Waiting for Sponsor</strong>
-                      <div class="mb-1 textMutedChange">Contact us for a free trial</div>
-                      <p class="mb-auto">Yes, We are big fan of Uber Eat. Takes couple taps to get your Meal. and we are open for sponsor from YOU!</p>
-                      <a href="https://www.ubereats.com/" class="stretched-link">Let's Uber Eat</a>
-                    </div>
-                  </div>
-              </div>
           </div>
-      </div>
        
 
 <!-- About us Section -->
-       <div class="row" id="AboutUs">
-         <h1 class="boxTitle">About Us</h1> 
+      <div class="row" id="AboutUs">
+         <h1 class="boxTitle">About Us</h1>
          <div class="container">
          
          
          <p> Hi! </p> 
          
-           We are Team Coding aka Team C.</p3> <br> 
-           <br>
+           We are Team Coding aka Team C.<br><button class="toggleBtn" onclick="toggleAboutUs()">...Click Here</button> <br>
+           <br> 
  
-        <div class="tab">
-           <p3> Our idea for this website was to provide a solution to the countless hours lost due to browsing for a good movie  to watch.</p3>
-           <p3>With so many streaming devices we spend a lot of our time browsing through content finding the right movie to watch.  So our team came up with a simple solution. 
-              Based on your mood, we will narrow down your seach and give you a list of movies for you to choose. This will be saving valuable screen time in which you can use to prepare yourself a snack instead. </p3>
-              <p3> Also as a bonus we provide you a meal or snack to go along with your movie, making your movie night more enjoyable. </p3> <br>
-           <br>
-           
-              <p3>We hope that you enjoy using our website . If you have any feedback please send them our way. </p3>
-              <br>
-              <br>
-              <br>
-              
-              <p3>Cheers! </p3> <br>  
-              <br>
+        <div class="tab" id="aboutUsPar">
+           <p3> Our idea for this website was to provide a solution to the countless hours lost due to browsing for a good movie  to watch.
+              With so many streaming devices we spend a lot of our time browsing through content finding the right movie to watch.  So our team came up with a simple solution. 
+              Based on your mood, we will narrow down your seach and give you a list of movies for you to choose. This will be saving valuable screen time in which you can use to prepare yourself a snack instead.
+              Also as a bonus we provide you a meal or snack to go along with your movie, making your movie night more enjoyable. </p3> <br><br>
 
-            <p3>Team Coding </p3> <br> 
-            <br>
+              <p3>We hope that you enjoy using our website . If you have any feedback please send them our way. </p3>
+              <br><br><br>
+              
+              <p3>Cheers! </p3> <br><br>  
+
+              <p3>Team Coding </p3><br><br>
 
           <p3>Eddi, Doug, Samuel & Sadia  </p3> 
         </div>
        </div>
 
+      </div>
 
 
-       </div>
+
+
+<div class="row mb-4" id="#ContactUs">
+
+  <!--Section heading-->
+  <h1 class="boxTitle row my-4">Contact us</h1>
+  <!--Section description-->
+  <p class="text-left w-responsive mx-auto mb-5">Do you have any questions or want you accelate your business? Please do not hesitate to contact us directly. Our team will come back to you within
+      asap to help you.<button class="toggleBtn" onclick="toggleContactUs()">...Click Here</button></p>
+
+  <div class="row" id="contactUsForm">
+
+      <!--Grid column-->
+      <div class="col-md-9 mb-md-0 mb-5">
+          <form id="contactForm" class="text-left">
+
+              <!--Input and msg-->
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="md-form mb-0">
+                          <input type="text" class="form-control">
+                          <label for="name">Your name</label>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="md-form mb-0">
+                          <input type="text" class="form-control">
+                          <label for="email">Your email</label>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="md-form mb-0">
+                          <input type="text" class="form-control">
+                          <label for="subject" class="">Subject</label>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="md-form">
+                          <textarea type="text" rows="4" class="form-control md-textarea"></textarea>
+                          <label for="message">Your message</label>
+                      </div>
+                  </div>
+              </div>
+          </form>
+
+          <div class="text-right text-md-left">
+              <a class="btn btn-secondary disabled" onclick="">Send</a><p id="subAlert"></p>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </div>
+
+
+
+
+
+
+
+
+
  </div>
 
 <footer>

@@ -185,4 +185,18 @@ div.indent {
   margin-left :2.5em; 
 }
 
-
+#aboutUsPar{
+  margin-left: 0.5rem;
+  display: none;
+}
+textarea.md-form{
+  background-color: brown;
+}
+.toggleBtn{
+  background-color: transparent;
+  padding:0;
+  border-style: none;
+}
+#contactUsForm{
+  display: none;
+}
